@@ -7,12 +7,27 @@ body {
   overflow-x: hidden;
 }
 body {
+  cursor: none;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   background-color: #000;
 }
+
+#cursor {
+  position: absolute;
+  width: 112px;
+  height: 112px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
 .glassbox1 {
   height: 5vh;
   width: 100%;
@@ -37,6 +52,94 @@ body {
   flex-direction: column;
   align-items: flex-start;
   gap: 30px;
-  height: 40vh;
   margin: 0 20%;
+}
+.phone-box {
+  height: 50vh;
+  display: none;
+  margin: 0 20%;
+  padding: 6vh 0;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  position: relative;
+}
+
+.phone-d,
+.phone-m,
+.phone-c {
+  width: auto;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  border-radius: 45px;
+  overflow: hidden;
+}
+
+.phone-content {
+  z-index: 1;
+  height: 95%;
+  width: 95%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: url(#gaussian-blur);
+}
+
+.phone-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  transition: top 1s;
+}
+
+.phone-content-f {
+  z-index: 1;
+  height: 95%;
+  width: 95%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: url(#gaussian-blur);
+}
+
+.phone-content-f img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+}
+.phone-content img.active {
+  top: 0;
+}
+
+.phone-content img.prev {
+  top: -100%;
+}
+
+.phone-cmp {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-cmp img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }

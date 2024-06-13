@@ -1,0 +1,37 @@
+/* FONTS */
+@font-face {
+  font-family: "PingFang SC bold";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Semibold.otf);
+}
+@font-face {
+  font-family: "PingFang SC regular";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Regular.otf);
+}
+@font-face {
+  font-family: "PingFang SC medium";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Medium.otf);
+}
+@font-face {
+  font-family: "PingFang SC thin";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Thin.otf);
+}
+@font-face {
+  font-family: "PingFang SC light";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Light.otf);
+}
+@font-face {
+  font-family: "PingFang SC senmibold";
+  src: url(../fonts/pf/PingFang-Mod-19.0d5e3-SC-Semibold.otf);
+}
+@font-face {
+  font-family: "hwmc";
+  src: url(../fonts/Huiwen-mincho.otf);
+}
+@font-face {
+  font-family: "loveletter";
+  src: url(../fonts/Lovelt__.ttf);
+}
+@font-face {
+  font-family: "xrw";
+  src: url(../fonts/HYXinRenWenSongW.ttf);
+}
