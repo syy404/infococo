@@ -1,8 +1,37 @@
+var jsonData = [
+  {
+    name: "评论员",
+    describe: "只要喜欢都会互动，不按兴趣决定是否看完，偶尔点「不感兴趣」",
+    hobby: 14,
+    ad: 2,
+    promotion: 2,
+    unfriendly: 1,
+    polarize: 0,
+    financially: 4,
+    knowledge: 3,
+    amusement: 18,
+    info: "NA",
+    id: 313,
+  },
+  {
+    name: "挑剔派",
+    describe: "只要喜欢的都互动，不按兴趣决定是否看完，都不点「不感兴趣」",
+    hobby: 23,
+    ad: 1,
+    promotion: 0,
+    unfriendly: 0,
+    polarize: 0,
+    financially: 3,
+    knowledge: 2,
+    amusement: 10,
+    info: "推送的旅游信息和电视剧推荐掺杂在一起，不知道是不是因为我其他平台经常浏览相关的电视剧",
+    id: 213,
+  },
+];
 $(document).ready(function () {
   const vobox = $(".vo-box");
   const notebook = $(".notebook");
   $("html, body").css("overflow", "hidden");
-  var count = 0;
   let ntbclick = 0;
   let isScrolled = false;
   /* PLUSING BINARY BG */
@@ -143,11 +172,11 @@ $(document).ready(function () {
       ntbclick++;
       console.log("ntbclick: ", ntbclick);
       if (ntbclick === 1 && !isScrolled) {
-        $("html, body").animate(
+        $("body").animate(
           {
-            scrollTop: $("#p1").offset().top,
+            scrollTop: $("#p1").offset().top - 20,
           },
-          3000
+          4000
         );
         isScrolled = true;
 
@@ -158,7 +187,7 @@ $(document).ready(function () {
             bubble.css("display", "flex");
             bubble.addClass("animate__animated animate__fadeInUpBig");
           }, delay);
-          delay += 600; // 0.2秒的延迟
+          delay += 800;
         });
       }
     });
@@ -166,21 +195,86 @@ $(document).ready(function () {
   part1();
 
   function user() {
+    var localCount = 0;
     $(".user-list-item").each(function () {
       var selectedValue = parseInt($(this).val(), 10);
-      count += selectedValue;
+      localCount += selectedValue;
     });
-    if ((count = 313)) {
-      alert("Count is greater than 200");
-    } else if ((count = 213)) {
-      alert("Count is greater than 100 but less than or equal to 200");
-    }
+    count = localCount;
+    return count;
   }
+
   $("#button-next").click(function () {
     user();
-    console.log("user  " + count);
+    //console.log("user  " + count);
+    $("#chat1 .bubble").fadeOut(1000);
+    $(".p1-box").animate({ left: "0px", top: "5vh" }, 1000);
+    $(".hint-boxbox").animate(
+      { width: "0px", padding: "0px" },
+      1000,
+      function () {
+        $(this).fadeOut(0);
+      }
+    );
+    //$(".hint-boxbox").fadeOut(1000);
+    //$(".hint-boxbox").animate({ width: "0px" }, 1000);
+    $(".cntboxbox").animate({ opacity: 1 }, 1000);
+    //$(".cntboxbox").fadeIn(1000);
+    $(".user-infobox").animate(
+      { height: "0px", padding: "0px" },
+      1000,
+      function () {
+        $(this).fadeOut(0);
+      }
+    );
+    jsonData.forEach(function (item) {
+      if (item.id === count) {
+        var cntboxItem = $(".cntbox-item");
+        cntboxItem.empty();
+
+        for (var i = 0; i < item.hobby; i++) {
+          var delay = i * 20;
+          cntboxItem.append(
+            '<img src="../pic/chge/star.svg" style="animation-delay: ' +
+              delay +
+              'ms;" class="animated animate__bounceIn" />'
+          );
+        }
+
+        for (var j = 0; j < 50 - item.hobby; j++) {
+          var delay = (item.hobby + j) * 20;
+          cntboxItem.append(
+            '<img src="../pic/chge/basic.svg" style="animation-delay: ' +
+              delay +
+              'ms;" class="animated animate__bounceIn" />'
+          );
+        }
+      }
+    });
   });
 
+  $(".cnt-chge-button").hover(
+    function () {
+      // 获取对应的 memo 元素ID
+      var memoId = "#cnt-chge-memo" + this.id.slice(-1);
+      // 显示对应的 memo 元素
+      $(memoId).css({
+        visibility: "visible",
+        height: "auto",
+        opacity: 1,
+      });
+    },
+    function () {
+      // 获取对应的 memo 元素ID
+      var memoId = "#cnt-chge-memo" + this.id.slice(-1);
+      // 隐藏对应的 memo 元素
+      $(memoId).css({
+        visibility: "hidden",
+        height: "0",
+        opacity: 0,
+      });
+    }
+  );
   /*   function getuserpst(topr, leftr, whois) {
     var topget = topr.offset();
     var hintTop = topget.top;
@@ -192,6 +286,7 @@ $(document).ready(function () {
     });
   }
   getuserpst($(".user-filebox-title"),$(".user-card"),$("#hint1")) */
+
   /* AOS */
   AOS.init();
 });

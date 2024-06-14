@@ -10,7 +10,8 @@
     "financially": 4,
     "knowledge": 3,
     "amusement": 18,
-    "info": "NA"
+    "info": "NA",
+    "id": 313
   },
   {
     "name": "挑剔派",
@@ -23,6 +24,7 @@
     "financially": 3,
     "knowledge": 2,
     "amusement": 10,
-    "info": "推送的旅游信息和电视剧推荐掺杂在一起，不知道是不是因为我其他平台经常浏览相关的电视剧"
+    "info": "推送的旅游信息和电视剧推荐掺杂在一起，不知道是不是因为我其他平台经常浏览相关的电视剧",
+    "id": 213
   }
 ]

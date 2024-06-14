@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="text-layer">
-      <div class="glassbox1"></div>
+            <div class="glassbox1"></div>
       <div class="p0-box">
         <div class="vo-box">
           <p class="vo-text">欢迎回来！还记得你的工作是什么吗？</p>
@@ -98,11 +98,14 @@
       <div class="glassbox1"></div>
       <div class="glassbox1"></div>
       <div class="glassbox1"></div>
-      <div class="glassbox1"></div>
-      <div class="p1-box" id="p1">
-        <div class="user-card">
+      <div class="glassbox1"></div> 
+      <div class="p1-box">
+        <div class="user-card" id="p1">
           <div class="user-infobox">
-            <img src="pic/user.png" alt="user" />
+            <img
+              src="pic/user.png"
+              alt="user"
+              style="height: 100px; width: 100px" />
             <div class="user-info">
               <p class="user-name">星星</p>
               <div class="user-detail">
@@ -164,7 +167,67 @@
             <p class="hint-text">创建完毕后，点击确认！</p>
           </div>
         </div>
+        <div class="cntboxbox">
+          <div class="cntbox">
+            <div class="cntbox-item"></div>
+            <svg
+              width="300"
+              height="3"
+              viewBox="0 0 488 3"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <line
+                x1="0.500122"
+                y1="1.5"
+                x2="487.5"
+                y2="1.5"
+                stroke="black"
+                stroke-width="3" />
+            </svg>
+          </div>
+          <div class="cnt-memo">
+            <div class="cnt-tab">
+              <img src="pic/chge/star.svg" alt="S" />
+              <p class="cnt-tab-text">兴趣内容</p>
+            </div>
+            <div class="cnt-chgebox">
+              <div class="cnt-chge-hint">
+                <img src="pic/jump.svg" alt="J" />
+                <p>点击不同的标签切换数据吧！</p>
+              </div>
+              <div class="cnt-chge">
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn1">
+                    <p>兴趣推荐</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo1">
+                    <p>会推给你多少感兴趣的内容？</p>
+                  </div>
+                </div>
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn2">
+                    <p>商业入侵</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo2">
+                    <p>资本多大程度上介入了视频内容？</p>
+                  </div>
+                </div>
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn3">
+                    <p>内容分布</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo3">
+                    <p>哪些是你值得注意的内容？</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
     </div>
     <!-- Importing the scripts -->
     <script src="scripts/lib/jq/jquery-3.7.1.min.js"></script>
