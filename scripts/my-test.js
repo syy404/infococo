@@ -1,4 +1,10 @@
 $(document).ready(function () {
+  const vobox = $(".vo-box");
+  const notebook = $(".notebook");
+  $("html, body").css("overflow", "hidden");
+  var count = 0;
+  let ntbclick = 0;
+  let isScrolled = false;
   /* PLUSING BINARY BG */
   function plusing() {
     var canvas = $("canvas")[0],
@@ -15,7 +21,7 @@ $(document).ready(function () {
       drops[i] = 1;
     }
     function draw() {
-      ctx.fillStyle = "rgba(255, 255, 255, .1)";
+      ctx.fillStyle = "rgba(249, 249, 249, .1)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       for (var i = 0; i < drops.length; i++) {
         var text = letters[Math.floor(Math.random() * letters.length)];
@@ -50,7 +56,7 @@ $(document).ready(function () {
         x: e.clientX,
         y: e.clientY,
       });
-      console.log("Mouse position: ", e.clientX, e.clientY);
+      //console.log("Mouse position: ", e.clientX, e.clientY);
     });
     $(document).mousedown(function () {
       gsap.to(cursorSvg, {
@@ -73,9 +79,13 @@ $(document).ready(function () {
   }
   cursor();
 
+  /* PART0 */
+  function part0() {
+    vobox.animate({ width: "500px" }, 800);
+  }
   /* TYPE MACHINE ANIMATION */
   function typeMachine() {
-    const typeMachineSpeed = 40;
+    const typeMachineSpeed = 1; //待会改
     function writeText(element, text, idx, callback) {
       element.text(text.slice(0, idx));
       idx++;
@@ -88,7 +98,7 @@ $(document).ready(function () {
         if (callback) callback();
       }
     }
-    function startTypingAnimation(elements, index, finalCallback) {
+    function typemachine(elements, index, finalCallback) {
       if (index >= elements.length) {
         if (finalCallback) finalCallback();
         return;
@@ -98,18 +108,90 @@ $(document).ready(function () {
       element.text("");
       element.show();
       writeText(element, text, 1, () => {
-        startTypingAnimation(elements, index + 1, finalCallback);
+        if (element.attr("id") === "prgmerin") {
+          setTimeout(() => {
+            $(".coder-box")
+              .css("display", "block")
+              .addClass(
+                "animate__animated animate__fadeIn animate__fadeInCustom"
+              );
+          }, 0);
+        }
+        if (element.attr("id") === "ntbin") {
+          setTimeout(() => {
+            $(".notebook")
+              .css("display", "block")
+              .addClass(
+                "animate__animated animate__fadeIn animate__fadeInCustom"
+              );
+          }, 0);
+        }
+        typemachine(elements, index + 1, finalCallback);
       });
     }
+
     const votexts = $(".vo-text");
-    startTypingAnimation(votexts, 0, () => {});
-    let delay = 0;
-    $(".vo-box [data-aos]").each(function () {
-      $(this).attr("data-aos-delay", delay);
-      delay += 1;
+    typemachine(votexts, 0, () => {
+      part0();
     });
   }
   typeMachine();
+
+  /* PART1 */
+  function part1() {
+    $(".notebook").on("click", function () {
+      ntbclick++;
+      console.log("ntbclick: ", ntbclick);
+      if (ntbclick === 1 && !isScrolled) {
+        $("html, body").animate(
+          {
+            scrollTop: $("#p1").offset().top,
+          },
+          3000
+        );
+        isScrolled = true;
+
+        var delay = 0;
+        $("#chat1 .bubble").each(function (i) {
+          var bubble = $(this);
+          setTimeout(function () {
+            bubble.css("display", "flex");
+            bubble.addClass("animate__animated animate__fadeInUpBig");
+          }, delay);
+          delay += 600; // 0.2秒的延迟
+        });
+      }
+    });
+  }
+  part1();
+
+  function user() {
+    $(".user-list-item").each(function () {
+      var selectedValue = parseInt($(this).val(), 10);
+      count += selectedValue;
+    });
+    if ((count = 313)) {
+      alert("Count is greater than 200");
+    } else if ((count = 213)) {
+      alert("Count is greater than 100 but less than or equal to 200");
+    }
+  }
+  $("#button-next").click(function () {
+    user();
+    console.log("user  " + count);
+  });
+
+  /*   function getuserpst(topr, leftr, whois) {
+    var topget = topr.offset();
+    var hintTop = topget.top;
+    var hintLeft = leftr.left - whois.outerWidth() - 30;
+    whois.css({
+      position: "absolute",
+      top: hintTop,
+      left: hintLeft,
+    });
+  }
+  getuserpst($(".user-filebox-title"),$(".user-card"),$("#hint1")) */
   /* AOS */
   AOS.init();
 });

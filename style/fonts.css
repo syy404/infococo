@@ -35,3 +35,7 @@
   font-family: "xrw";
   src: url(../fonts/HYXinRenWenSongW.ttf);
 }
+@font-face {
+  font-family: "xynt";
+  src: url(../fonts/xynt.otf);
+}

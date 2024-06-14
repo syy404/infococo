@@ -1,0 +1,28 @@
+[
+  {
+    "name": "评论员",
+    "describe": "只要喜欢都会互动，不按兴趣决定是否看完，偶尔点「不感兴趣」",
+    "hobby": 14,
+    "ad": 2,
+    "promotion": 2,
+    "unfriendly": 1,
+    "polarize": 0,
+    "financially": 4,
+    "knowledge": 3,
+    "amusement": 18,
+    "info": "NA"
+  },
+  {
+    "name": "挑剔派",
+    "describe": "只要喜欢的都互动，不按兴趣决定是否看完，都不点「不感兴趣」",
+    "hobby": 23,
+    "ad": 1,
+    "promotion": 0,
+    "unfriendly": 0,
+    "polarize": 0,
+    "financially": 3,
+    "knowledge": 2,
+    "amusement": 10,
+    "info": "推送的旅游信息和电视剧推荐掺杂在一起，不知道是不是因为我其他平台经常浏览相关的电视剧"
+  }
+]

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style/my-test.css" />
     <link rel="stylesheet" href="style/lib/aos/aos.css" />
     <link rel="stylesheet" href="style/fonts.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style></style>
   </head>
   <body>
@@ -25,42 +28,144 @@
       </svg>
     </div>
     <div class="coder-layer">
-      <div class="coder-pic-box">
-        <img src="pic/coder-pic.png" alt="coder pic" />
+      <div class="coder-box">
+        <div class="coder-pic-box">
+          <img src="pic/coder-pic.png" alt="coder pic" />
+        </div>
+        <!--    <div class="coder-text-box">
+          <p class="coder-text">程<br />序<br />员</p> -->
       </div>
-      <div class="coder-text-box">
-        <p class="coder-text">程<br />序<br />员</p>
+      <div class="coder-chatbox">
+        <div id="chat1">
+          <div class="bubble">
+            <p class="chat-text">现在我的任务很明确。</p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              也许很多普通的平台用户并不了解，但作为一个算法工程师，我很清楚，平台能从后台看到用户的使用数据，从而给他们推荐他们“喜欢”的内容。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              想要知道竞品平台的内容推荐机制……来做测试吧！
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              让我来模拟不同用户的使用习惯，看看对方平台会给这个「假人」推荐什么内容。
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="text-layer">
       <div class="glassbox1"></div>
-      <div class="vo-box">
-        <p class="vo-text">欢迎回来！还记得你的工作是什么吗？</p>
-        <p class="vo-text">
-          我们正在开发一款短视频内容平台，作为团队中重要的工程师，你的工作是为我们计划研发的产品做竞品分析。
-        </p>
-        <p class="vo-text">这是你的三个任务，以完成这三个任务为目标努力吧！</p>
-      </div>
-      <div class="notebook">
-        <p class="ntb-title">三个任务：</p>
-        <div class="ntb-boxbox">
-          <div class="ntb-box">
-            <img src="pic/check.svg" alt="C" />
-            <p class="ntb-text">探索视频内容</p>
+      <div class="p0-box">
+        <div class="vo-box">
+          <p class="vo-text">欢迎回来！还记得你的工作是什么吗？</p>
+          <p class="vo-text" id="prgmerin">
+            我们正在开发一款短视频内容平台，作为团队中重要的工程师，你的工作是为我们计划研发的产品做竞品分析。
+          </p>
+          <p class="vo-text" id="ntbin">
+            这是你的三个任务，以完成这三个任务为目标努力吧！
+          </p>
+        </div>
+        <div class="notebook">
+          <div class="ntb-boxbox">
+            <p class="ntb-title vo-text">三个任务：</p>
+            <div class="ntb-box">
+              <img src="pic/check.svg" alt="C" />
+              <p class="ntb-text">探索不同视频内容的推送机制</p>
+            </div>
+            <div class="ntb-box">
+              <img src="pic/check.svg" alt="C" />
+              <p class="ntb-text">分析评论区情况</p>
+            </div>
+            <div class="ntb-box">
+              <img src="pic/check.svg" alt="C" />
+              <p class="ntb-text">模拟用户反应</p>
+            </div>
           </div>
-          <div class="ntb-box">
-            <img src="pic/check.svg" alt="C" />
-            <p class="ntb-text">分析评论区情况</p>
-          </div>
-          <div class="ntb-box">
-            <img src="pic/check.svg" alt="C" />
-            <p class="ntb-text">模拟用户反应</p>
+          <div class="ntb-hint">
+            <img src="pic/pluse.svg" alt="C" />
+            <p>点击进入任务</p>
           </div>
         </div>
       </div>
-      <div class="title-box"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="p1-box" id="p1">
+        <div class="user-card">
+          <div class="user-infobox">
+            <img src="pic/user.png" alt="user" />
+            <div class="user-info">
+              <p class="user-name">星星</p>
+              <div class="user-detail">
+                <p>获赞：10</p>
+                <p>朋友：10</p>
+                <p>关注：10</p>
+                <p>粉丝：10</p>
+              </div>
+            </div>
+          </div>
+          <div class="user-selfile">
+            <div class="user-filebox">
+              <img src="pic/pen.svg" alt="pen" />
+              <div class="user-filebox-item">
+                <p class="user-filebox-title">个人简介</p>
+                <div class="user-list">
+                  <div class="user-list-itembox">
+                    <p class="user-list-text">对于喜欢的视频，</p>
+                    <select class="user-list-item">
+                      <option value="1">很少或几乎不</option>
+                      <option value="2">偶尔</option>
+                      <option value="3">几乎都</option>
+                    </select>
+                    <p class="user-list-text">会点赞评论来互动</p>
+                  </div>
+                  <div class="user-list-itembox">
+                    <p class="user-list-text">对于喜欢的视频，</p>
+                    <select class="user-list-item">
+                      <option value="10">不按兴趣决定是否看完一个视频</option>
+                      <option value="15">只看完喜欢的视频</option>
+                      <option value="20">看完所有视频</option>
+                      <option value="25">全部不看</option>
+                    </select>
+                  </div>
+                  <div class="user-list-itembox">
+                    <p class="user-list-text">对于不喜欢的视频，</p>
+                    <select class="user-list-item">
+                      <option value="100">一定会</option>
+                      <option value="200">偶尔会</option>
+                      <option value="300">绝不会</option>
+                    </select>
+                    <p class="user-list-text">点击「不感兴趣」。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="user-yes hvr-grow" id="button-next">
+              <p class="button-next-text">确认</p>
+            </div>
+          </div>
+        </div>
+        <div class="hint-boxbox">
+          <div class="hint-box" id="hint1">
+            <img src="pic/jump.svg" alt="J" />
+            <p class="hint-text">以自己刷视频的习惯为原型，创建角色吧！</p>
+          </div>
+          <div class="hint-box" id="hint2">
+            <img src="pic/jump.svg" alt="J" />
+            <p class="hint-text">创建完毕后，点击确认！</p>
+          </div>
+        </div>
+      </div>
     </div>
-
     <!-- Importing the scripts -->
     <script src="scripts/lib/jq/jquery-3.7.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
