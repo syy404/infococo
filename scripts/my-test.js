@@ -31,11 +31,12 @@ var jsonData = [
 $(document).ready(function () {
   const vobox = $(".vo-box");
   const notebook = $(".notebook");
-  $("html, body").css("overflow", "hidden");
-  let ntbclick = 0;
-  let isScrolled = false;
+  //$("html, body").css("overflow", "hidden");
+  var targetTop = $("#thisisp2").offset().top;
+  console.log("Target top value:", targetTop);
+
   /* PLUSING BINARY BG */
-  function plusing() {
+/*   function plusing() {
     var canvas = $("canvas")[0],
       ctx = canvas.getContext("2d");
     canvas.width = $(window).width();
@@ -73,8 +74,7 @@ $(document).ready(function () {
       }
     });
   }
-  plusing();
-
+  plusing(); */
   /* CURSOR */
   function cursor() {
     const cursor = $("#cursor");
@@ -109,9 +109,7 @@ $(document).ready(function () {
   cursor();
 
   /* PART0 */
-  function part0() {
-    vobox.animate({ width: "500px" }, 800);
-  }
+
   /* TYPE MACHINE ANIMATION */
   function typeMachine() {
     const typeMachineSpeed = 1; //待会改
@@ -148,7 +146,7 @@ $(document).ready(function () {
         }
         if (element.attr("id") === "ntbin") {
           setTimeout(() => {
-            $(".notebook")
+            $(".notebook1")
               .css("display", "block")
               .addClass(
                 "animate__animated animate__fadeIn animate__fadeInCustom"
@@ -165,35 +163,40 @@ $(document).ready(function () {
     });
   }
   typeMachine();
-
+  function part0() {
+    vobox.animate({ width: "500px" }, 800);
+  }
+  part0();
   /* PART1 */
   function part1() {
-    $(".notebook").on("click", function () {
-      ntbclick++;
-      console.log("ntbclick: ", ntbclick);
-      if (ntbclick === 1 && !isScrolled) {
-        $("body").animate(
-          {
-            scrollTop: $("#p1").offset().top - 20,
-          },
-          4000
-        );
-        isScrolled = true;
-
-        var delay = 0;
-        $("#chat1 .bubble").each(function (i) {
-          var bubble = $(this);
-          setTimeout(function () {
-            bubble.css("display", "flex");
-            bubble.addClass("animate__animated animate__fadeInUpBig");
-          }, delay);
-          delay += 800;
-        });
+    $(".notebook1").on("click", function () {
+      let isScrolled = false;
+      let ntbclick = 0;
+      if ($(this).hasClass("notebook1")) {
+        ntbclick++;
+        if (ntbclick === 1 && !isScrolled) {
+          $("html, body").animate(
+            {
+              scrollTop: $("#p1").offset().top - 20,
+            },
+            4000
+          );
+          isScrolled = true;
+          var delay = 0;
+          $("#chat1 .bubble").each(function (i) {
+            var bubble = $(this);
+            setTimeout(function () {
+              bubble.css("display", "flex");
+              bubble.addClass("animate__animated animate__fadeInUpBig");
+            }, delay);
+            delay += 800;
+          });
+          console.log("go to p1");
+        }
       }
     });
   }
   part1();
-
   function user() {
     var localCount = 0;
     $(".user-list-item").each(function () {
@@ -203,79 +206,150 @@ $(document).ready(function () {
     count = localCount;
     return count;
   }
-
-  $("#button-next").click(function () {
-    user();
-    //console.log("user  " + count);
-    $("#chat1 .bubble").fadeOut(1000);
-    $(".p1-box").animate({ left: "0px", top: "5vh" }, 1000);
-    $(".hint-boxbox").animate(
-      { width: "0px", padding: "0px" },
-      1000,
-      function () {
-        $(this).fadeOut(0);
-      }
-    );
-    //$(".hint-boxbox").fadeOut(1000);
-    //$(".hint-boxbox").animate({ width: "0px" }, 1000);
-    $(".cntboxbox").animate({ opacity: 1 }, 1000);
-    //$(".cntboxbox").fadeIn(1000);
-    $(".user-infobox").animate(
-      { height: "0px", padding: "0px" },
-      1000,
-      function () {
-        $(this).fadeOut(0);
-      }
-    );
-    jsonData.forEach(function (item) {
-      if (item.id === count) {
-        var cntboxItem = $(".cntbox-item");
-        cntboxItem.empty();
-
-        for (var i = 0; i < item.hobby; i++) {
-          var delay = i * 20;
-          cntboxItem.append(
-            '<img src="../pic/chge/star.svg" style="animation-delay: ' +
-              delay +
-              'ms;" class="animated animate__bounceIn" />'
-          );
+  user();
+  function next() {
+    $("#button-next").click(function () {
+      user();
+      //console.log("user  " + count);
+      $("#chat1 .bubble").fadeOut(1000);
+      $(".p1-box").animate({ left: "0px", top: "5vh" }, 1000);
+      $(".hint-boxbox").animate(
+        { width: "0px", padding: "0px" },
+        1000,
+        function () {
+          $(this).fadeOut(0);
         }
-
-        for (var j = 0; j < 50 - item.hobby; j++) {
-          var delay = (item.hobby + j) * 20;
-          cntboxItem.append(
-            '<img src="../pic/chge/basic.svg" style="animation-delay: ' +
-              delay +
-              'ms;" class="animated animate__bounceIn" />'
-          );
+      );
+      //$(".hint-boxbox").fadeOut(1000);
+      //$(".hint-boxbox").animate({ width: "0px" }, 1000);
+      $(".cntboxbox").animate({ opacity: 1 }, 1000);
+      //$(".cntboxbox").fadeIn(1000);
+      $(".user-infobox").animate(
+        { height: "0px", padding: "0px" },
+        1000,
+        function () {
+          $(this).fadeOut(0);
         }
-      }
+      );
+      jsonData.forEach(function (item) {
+        if (item.id === count) {
+          var cntboxItem = $(".cntbox-item");
+          cntboxItem.empty();
+
+          for (var i = 0; i < item.hobby; i++) {
+            var delay = i * 20;
+            cntboxItem.append(
+              '<img src="../pic/chge/star.svg" style="animation-delay: ' +
+                delay +
+                'ms;" class="animated animate__bounceIn" />'
+            );
+          }
+
+          for (var j = 0; j < 50 - item.hobby; j++) {
+            var delay = (item.hobby + j) * 20;
+            cntboxItem.append(
+              '<img src="../pic/chge/basic.svg" style="animation-delay: ' +
+                delay +
+                'ms;" class="animated animate__bounceIn" />'
+            );
+          }
+        }
+      });
+      //原来如此……
+      setTimeout(function () {
+        var delay = 0;
+        $("#chat2 .bubble").each(function (i) {
+          var bubble = $(this);
+          setTimeout(function () {
+            bubble.css({
+              position: "absolute",
+              display: "flex",
+              bottom: "-183px",
+              left: "185px",
+            });
+            bubble.addClass("animate__animated animate__fadeInUpBig");
+            console.log("show bubble");
+          }, delay);
+          delay += 800;
+        });
+      }, 1000);
     });
-  });
+  }
+  next();
 
-  $(".cnt-chge-button").hover(
-    function () {
-      // 获取对应的 memo 元素ID
-      var memoId = "#cnt-chge-memo" + this.id.slice(-1);
-      // 显示对应的 memo 元素
-      $(memoId).css({
-        visibility: "visible",
-        height: "auto",
-        opacity: 1,
+  function chgebutton() {
+    $(".cnt-chge-button").hover(
+      function () {
+        var memoId = "#cnt-chge-memo" + this.id.slice(-1);
+        $(memoId).css({
+          visibility: "visible",
+          height: "auto",
+          opacity: 1,
+        });
+      },
+      function () {
+        var memoId = "#cnt-chge-memo" + this.id.slice(-1);
+        $(memoId).css({
+          visibility: "hidden",
+          height: "0",
+          opacity: 0,
+        });
+      }
+    );
+  }
+  chgebutton();
+
+  /* PART2 */
+  function top2() {
+    $("#chat2").on("click", function () {
+      $("#chat2").fadeOut(function () {
+        $("html, body").animate(
+          {
+            scrollTop: targetTop,
+          },
+          4000
+        );
+        let delay = 0;
+        $("#chat3 .bubble").each(function (i) {
+          var bubble = $(this);
+          setTimeout(function () {
+            bubble.css("display", "flex");
+            bubble.addClass("animate__animated animate__fadeInUpBig");
+          }, delay);
+          delay += 800;
+        });
+
+        setTimeout(function () {
+          $(".notebook2").css("display", "flex");
+          $(".notebook2").addClass(
+            "animate__animated animate__fadeIn animate__fadeInCustom"
+          );
+        }, 1000);
       });
-    },
-    function () {
-      // 获取对应的 memo 元素ID
-      var memoId = "#cnt-chge-memo" + this.id.slice(-1);
-      // 隐藏对应的 memo 元素
-      $(memoId).css({
-        visibility: "hidden",
-        height: "0",
-        opacity: 0,
-      });
-    }
-  );
-  /*   function getuserpst(topr, leftr, whois) {
+    });
+  }
+  top2();
+
+  function ntb2() {
+    $(".notebook2-box").click(function () {
+      $(".comment-boxbox").animate({ opacity: 1 }, 1000);
+      //console.log("show comment");
+      $(".p2-box").animate({ left: "0", top: "5vh" }, 1000);
+      $(".notebook2-box").animate(
+        { width: "0px", padding: "0px" },
+        1000,
+        function () {
+          $(this).fadeOut(0);
+        }
+      );
+    });
+  }
+  ntb2();
+  /* AOS */
+  AOS.init();
+});
+
+/*   function getuserpst(topr, leftr, whois) {
     var topget = topr.offset();
     var hintTop = topget.top;
     var hintLeft = leftr.left - whois.outerWidth() - 30;
@@ -286,7 +360,3 @@ $(document).ready(function () {
     });
   }
   getuserpst($(".user-filebox-title"),$(".user-card"),$("#hint1")) */
-
-  /* AOS */
-  AOS.init();
-});
