@@ -11,6 +11,10 @@ body {
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+  background-image: url("../pic/paper.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 body.noscroll {
   overflow: hidden;
@@ -22,13 +26,13 @@ body {
   align-items: center;
   background-color: #ffffff;
 }
-canvas {
+/* canvas {
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-}
+} */
 
 /* CURSOR */
 #cursor {
@@ -106,6 +110,13 @@ canvas {
   gap: 15px;
   width: 500px;
 }
+#chat4 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  width: 500px;
+}
 .bubble {
   display: none;
   padding: 20px 25px;
@@ -122,6 +133,33 @@ canvas {
   font-style: normal;
   font-weight: 400;
   line-height: 100%;
+}
+
+/* TITLE */
+.title-layer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
+}
+.title {
+  display: inline-flex;
+  padding: 15px 6px;
+  align-items: flex-start;
+  gap: 17px;
+}
+.title p {
+  color: #000;
+  font-family: HYXinRenWenSongW;
+  font-size: 86px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 81.805%; /* 70.352px */
+  letter-spacing: -15.48px;
 }
 
 /* ANIMATION */
@@ -164,12 +202,60 @@ canvas {
   left: 0;
   bottom: -3px;
   width: 0;
-  height: 2px; 
-  background-color: #333; 
-  transition: width 0.2s ease; }
-
+  height: 2px;
+  background-color: #333;
+  transition: width 0.2s ease;
+}
 .underline:hover::after {
   width: 100%;
+}
+/* Pulse */
+@-webkit-keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+@keyframes hvr-pulse {
+  25% {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  75% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+}
+.hvr-pulse {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+.hvr-pulse:hover,
+.hvr-pulse:focus,
+.hvr-pulse:active {
+  -webkit-animation-name: hvr-pulse;
+  animation-name: hvr-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+/* EFFECT */
+.text-shadow {
+  text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.3);
+}
+.box-shadow {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* PART0 */
@@ -209,6 +295,7 @@ canvas {
   align-items: flex-start;
   gap: 30px;
   width: auto;
+  min-width: 400px;
   margin: 0;
 }
 .colorize {
@@ -240,7 +327,7 @@ canvas {
   background-size: cover;
   background-position: center;
 }
-.notebook2-box {
+.notebook-box {
   display: flex;
   align-items: flex-start;
 }
@@ -255,8 +342,8 @@ canvas {
 .ntb-title {
   color: #000;
   text-align: left;
-  font-family: xynt;
-  font-size: 45px;
+  font-family: HYXinRenWenSongW;
+  font-size: 32px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -282,20 +369,20 @@ canvas {
 }
 .ntb-text {
   color: #000;
-  font-family: xynt;
-  font-size: 38px;
+  font-family: HYXinRenWenSongW;
+  font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 .ntb-text-fin {
   color: #000;
-  font-family: xynt;
-  font-size: 38px;
+  font-family: HYXinRenWenSongW;
+  font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  text-decoration-line: strikethrough;
+  text-decoration-line: line-through;
 }
 .ntb-hint {
   margin-top: 140px;
@@ -323,9 +410,14 @@ canvas {
   padding: 200px 52px;
   gap: 120px;
 }
+.user-card-box {
+  align-items: flex-start;
+  display: flex;
+  gap: 30px;
+}
 .user-card {
   display: flex;
-  width: 570px;
+  width: 500px;
   height: auto;
   margin: 100 50 0 50;
   flex-direction: column;
@@ -333,13 +425,14 @@ canvas {
   align-items: center;
   flex-shrink: 0;
   border-radius: 28px;
-  background: url(../pic/speed.gif) lightgray 50% / cover no-repeat;
+  border-radius: 28px;
+  border: 9px solid #000;
   box-shadow: 10px 6px 4px 0px rgba(0, 0, 0, 0.25);
 }
 .user-infobox {
   display: flex;
   width: 539px;
-  padding: 30px 30px;
+  padding: 50px 63px;
   align-items: center;
   gap: 14px;
 }
@@ -350,9 +443,9 @@ canvas {
   gap: 6px;
 }
 .user-name {
-  color: #fff;
+  color: #000;
   font-family: "PingFang SC";
-  font-size: 32px;
+  font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -363,9 +456,9 @@ canvas {
   gap: 3px;
 }
 .user-detail p {
-  color: #fff;
+  color: #000;
   font-family: "PingFang SC";
-  font-size: 21px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -398,7 +491,7 @@ canvas {
 .user-filebox-title {
   color: #000;
   font-family: "PingFang SC";
-  font-size: 31px;
+  font-size: 27px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -420,7 +513,7 @@ canvas {
 .user-list-text {
   color: #000;
   font-family: "PingFang SC";
-  font-size: 25px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -428,7 +521,7 @@ canvas {
 }
 .user-list-item {
   display: flex;
-  padding: 11px 11px;
+  padding: 5px 7px;
   align-items: center;
   gap: 10px;
   border-radius: 6px;
@@ -444,7 +537,7 @@ canvas {
 .user-list-item option {
   color: #000;
   font-family: "PingFang SC";
-  font-size: 21px;
+  font-size: 17px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -504,6 +597,7 @@ canvas {
   align-items: center;
   gap: 28px;
   opacity: 0;
+  align-self: stretch;
 }
 .cntbox {
   display: flex;
@@ -521,6 +615,23 @@ canvas {
   align-content: flex-end;
   gap: 5px 5px;
   flex-wrap: wrap;
+}
+.cnt-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 43px;
+  align-self: stretch;
+}
+.cnt-info-text {
+  color: #000;
+  font-family: HYXinRenWenSongW;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 131.602%; /* 40.797px */
+  letter-spacing: -1.24px;
+  align-self: stretch;
 }
 .cnt-memo {
   display: flex;
@@ -573,30 +684,31 @@ canvas {
   gap: 5px;
 }
 .cnt-chge-button {
+  width: 160px;
   display: flex;
-  padding: 15px 10px;
+  padding: 10px 12px;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  border-radius: 23px;
-  width: 190px;
+  align-self: stretch;
+  box-shadow: 4px 4px 2px 0px rgba(0, 0, 0, 0.25);
 }
 .cnt-chge-button p {
-  color: #fff;
-  font-family: "PingFang SC";
+  color: #000;
+  font-family: HYXinRenWenSongW;
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 #cnt-chge-btn1 {
-  background: #6aad64;
+  border: 3px solid #cd1616;
 }
 #cnt-chge-btn2 {
-  background: #ccb04d;
+  border: 3px solid #0065c2;
 }
 #cnt-chge-btn3 {
-  background: #6497ad;
+  border: 3px solid #c38c00;
 }
 .cnt-chge-memo {
   border-radius: 7px;
@@ -609,34 +721,17 @@ canvas {
   box-sizing: border-box;
   padding: 10px;
   visibility: hidden;
-  height: 0;
   opacity: 0;
   transition: visibility 0s, opacity 0.5s linear, height 0.5s linear;
 }
 
 .cnt-chge-memo p {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: HYXinRenWenSongW;
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin: 0; /* 确保段落没有外边距 */
-}
-
-#cnt-chge-memo1 {
-  background: rgba(106, 173, 100, 0.33);
-  width: 100%; /* 确保背景颜色覆盖整个宽度 */
-}
-
-#cnt-chge-memo2 {
-  background: rgba(204, 176, 77, 0.33);
-  width: 100%; /* 确保背景颜色覆盖整个宽度 */
-}
-
-#cnt-chge-memo3 {
-  background: rgba(100, 151, 173, 0.46);
-  width: 100%; /* 确保背景颜色覆盖整个宽度 */
 }
 
 /* PART2 */
