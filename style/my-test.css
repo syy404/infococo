@@ -111,6 +111,9 @@ body {
   width: 500px;
 }
 #chat4 {
+  position: absolute;
+  top: -40vh;
+  left: 0vw;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -132,7 +135,7 @@ body {
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
-  line-height: 100%;
+  line-height: 150%;
 }
 
 /* TITLE */
@@ -147,7 +150,7 @@ body {
   gap: 9px;
 }
 .title {
-  display: inline-flex;
+
   padding: 15px 6px;
   align-items: flex-start;
   gap: 17px;
@@ -160,6 +163,11 @@ body {
   font-weight: 400;
   line-height: 81.805%; /* 70.352px */
   letter-spacing: -15.48px;
+}
+#title1,
+#title2,
+#title3 {
+  display: none;
 }
 
 /* ANIMATION */
@@ -319,7 +327,6 @@ body {
 }
 /* NOTEBOOK */
 .notebook1 {
-  display: none;
   width: 625px;
   height: 500px;
   background-image: url(../pic/memo.png);
@@ -329,6 +336,7 @@ body {
 }
 .notebook-box {
   display: flex;
+  opacity:0;
   align-items: flex-start;
 }
 .notebook2 {

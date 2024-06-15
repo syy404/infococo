@@ -32,7 +32,7 @@ $(document).ready(function () {
   const vobox = $(".vo-box");
   const notebook = $(".notebook");
   //$("html, body").css("overflow", "hidden");
-  var targetTop = $("#thisisp2").offset().top;
+  var targetTop = $("#thisisp2").offset().top - 400;
   var targetTop2 = $("#p3").offset().top;
   console.log("Target top value:", targetTop);
 
@@ -158,8 +158,8 @@ $(document).ready(function () {
         }
         if (element.attr("id") === "ntbin") {
           setTimeout(() => {
-            $(".notebook1")
-              .css("display", "block")
+            $(".notebook-box")
+              .css("display", "inline-flex")
               .addClass(
                 "animate__animated animate__fadeIn animate__fadeInCustom"
               );
@@ -193,6 +193,11 @@ $(document).ready(function () {
             },
             4000
           );
+          setTimeout(function () {
+            $("#title1")
+              .css("display", "inline-flex")
+              .addClass("animate__animated animate__fadeIn");
+          }, 1000);
           isScrolled = true;
           var delay = 0;
           $("#chat1 .bubble").each(function (i) {
@@ -333,7 +338,11 @@ $(document).ready(function () {
           }, delay);
           delay += 800;
         });
-
+        setTimeout(function () {
+          $("#title1")
+            .addClass("animate__animated animate__fadeOut")
+            .css("display", "none");
+        }, 1000);
         setTimeout(function () {
           $(".notebook2").css("display", "flex");
           $(".notebook2").addClass(
@@ -347,6 +356,17 @@ $(document).ready(function () {
 
   function ntb2() {
     $(".notebook2").click(function () {
+      // 1. 对#chat3进行fadeOut动画
+      $("#chat3").fadeOut(1000);
+
+      // 2. 在1秒后显示#title2，并添加animate__fadeIn动画
+      setTimeout(function () {
+        $("#title2")
+          .css("display", "inline-flex")
+          .addClass("animate__animated animate__fadeIn");
+      }, 1000);
+
+      // 保留现有的动画逻辑
       $(".comment-boxbox").animate({ opacity: 1 }, 1000);
       //console.log("show comment");
       $(".p2-box").animate({ left: "0", top: "5vh" }, 1000);
@@ -355,6 +375,8 @@ $(document).ready(function () {
       });
     });
   }
+
+  // 调用函数
   ntb2();
 
   function choose() {}
@@ -389,7 +411,9 @@ $(document).ready(function () {
 
     function checkAllClicked() {
       if (q1Clicked && q2Clicked && q3Clicked) {
-        $(".question").addClass("animate__animated animate__bounce");
+        setTimeout(function () {
+          $(".question").addClass("animate__animated animate__bounce");
+        }, 1000);
         // Show bubbles with animation
         let delay = 0;
         $("#chat4 .bubble").each(function (i) {
