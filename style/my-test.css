@@ -150,7 +150,6 @@ body {
   gap: 9px;
 }
 .title {
-
   padding: 15px 6px;
   align-items: flex-start;
   gap: 17px;
@@ -336,7 +335,7 @@ body {
 }
 .notebook-box {
   display: flex;
-  opacity:0;
+  opacity: 0;
   align-items: flex-start;
 }
 .notebook2 {
@@ -452,7 +451,7 @@ body {
 }
 .user-name {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC bold";
   font-size: 27px;
   font-style: normal;
   font-weight: 400;
@@ -465,7 +464,7 @@ body {
 }
 .user-detail p {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC medium";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -498,7 +497,7 @@ body {
 }
 .user-filebox-title {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 27px;
   font-style: normal;
   font-weight: 400;
@@ -520,7 +519,7 @@ body {
 }
 .user-list-text {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
@@ -535,7 +534,7 @@ body {
   border-radius: 6px;
   background: #f4f4f4;
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
@@ -544,7 +543,7 @@ body {
 }
 .user-list-item option {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -563,7 +562,7 @@ body {
 }
 .button-next-text {
   color: #fff;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
@@ -592,7 +591,7 @@ body {
 .hint-text {
   color: #929292;
   width: 150px;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -655,7 +654,7 @@ body {
 }
 .cnt-tab-text {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
@@ -674,7 +673,7 @@ body {
 }
 .cnt-chge-hint p {
   color: #929292;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -840,7 +839,7 @@ img {
 }
 .phone-text {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 21px;
   font-style: normal;
   font-weight: 400;
@@ -884,7 +883,7 @@ img {
 }
 .comment-name {
   color: #595959;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -892,7 +891,7 @@ img {
 }
 .comment-text {
   color: #000;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 17px;
   font-style: normal;
   font-weight: 400;
@@ -907,7 +906,7 @@ img {
 }
 .comment-detail p {
   color: #595959;
-  font-family: "PingFang SC";
+  font-family: "PingFang SC regular";
   font-size: 15px;
   font-style: normal;
   font-weight: 400;
