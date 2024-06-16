@@ -1,4 +1,4 @@
-$document.ready(function () {
+$(document).ready(function () {
   var targetTop = $("#thisisp2").offset().top - 400;
   var targetTop2 = $("#p3").offset().top;
   console.log("Target top value:", targetTop);
@@ -59,7 +59,7 @@ $document.ready(function () {
         },
         4000
       );
-      $("#chat4 .bubble").fadeOut(1000);
+      $("#chat4 .bubble").fadeOut(500);
     });
   }
   nxtbtn2();
@@ -90,6 +90,7 @@ $document.ready(function () {
 
     // 移除不需要的CSS和JS文件
     $("#nxt-button2").click(function () {
+      console.log("Next button clicked");
       $("#my-test-css").remove();
       $("#my-test-js").remove();
 
@@ -98,6 +99,7 @@ $document.ready(function () {
     });
 
     $("#container4-1").mouseover(function () {
+      console.log("Mouse over");
       $("#my-test-css").remove();
       $("#my-test-js").remove();
 
