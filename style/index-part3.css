@@ -1,0 +1,238 @@
+body {
+  padding: 0px 90px 80px 90px;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 29px;
+}
+#all {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh;  */
+  padding: 0px 90px 80px 90px;
+  gap: 29px;
+  box-sizing: border-box;
+}
+#div1 {
+  position: absolute;
+  z-index: 500;
+  /* text-align: center; */
+  /* width: 1173px; */
+}
+#div1 p {
+  color: #f2f2f2;
+  font-family: "PingFang SC";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  /* align-items: center; */
+}
+#div2 {
+  position: absolute;
+  padding: 25px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  /* border: #fff solid 1px; */
+  /* box-shadow: inset -20px -20px 13px 0px rgba(0, 0, 0, 0.5) , 
+							inset 20px 20px 13px 0px rgba(0, 0, 0, 0.5); */
+  overflow: hidden;
+  background: url(<path-to-image>) lightgray 75% / cover no-repeat;
+}
+#div2 img {
+  position: absolute;
+  height: auto;
+  display: block;
+}
+#f,
+#m,
+#c {
+  position: absolute;
+  z-index: 100;
+}
+#div3 {
+  position: absolute;
+  display: flex;
+  padding: 28px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 63px;
+  align-self: stretch;
+}
+#button {
+  /* position: absolute; */
+  display: flex;
+  height: 100%;
+  width: 54%;
+  align-items: center;
+  justify-content: center;
+  gap: 215px;
+  flex-shrink: 0;
+}
+#button p,
+#r1 p,
+#r2 p {
+  /* color: #FFF; */
+  text-align: center;
+  font-family: "PingFang SC";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 2.52px;
+}
+#button1,
+#button2,
+#button3 {
+  display: flex;
+  /* position: absolute; */
+  /* width: 130px;
+				height: 79px; */
+  height: 100%;
+  width: 15%;
+  padding: 33px 26px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-shrink: 0;
+  border-radius: 99px;
+  box-sizing: border-box;
+  border: 2px solid #fff;
+  background: #000;
+  color: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+#tip1,
+#tip2,
+#tip3 {
+  position: absolute;
+  display: flex;
+  /* display: none; */
+  /* width: 367px;
+				height: 92px; */
+  padding: 32px 12px 27px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 19px;
+  flex-shrink: 0;
+  z-index: 999;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  box-shadow: 3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+#tip1 p,
+#tip2 p,
+#tip3 p {
+  color: #fff;
+  font-family: "PingFang SC";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 2.52px;
+}
+#button1:hover {
+  background: #fff;
+  color: #000;
+}
+#button2:hover {
+  background: #fff;
+  color: #000;
+}
+#button3:hover {
+  background: #fff;
+  color: #000;
+}
+/* #father,#mother,#child{
+				position: absolute;
+				/* width: 754px;
+				height: 302px; 
+				flex-shrink: 0;
+				background: #000;
+				z-index: 500;
+			} */
+
+#father {
+  position: absolute;
+  display: block;
+  z-index: 400;
+  overflow: hidden;
+}
+
+.fa1,
+.fa2,
+.fa3 {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  z-index: 500;
+  overflow: hidden;
+}
+
+.fatxt {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  padding: 21px 29px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: #fff;
+  z-index: 1000;
+}
+
+.mo1,
+.mo2,
+.mo3,
+.chi1,
+.chi2,
+.chi3,
+.sfatxt,
+.smotxt,
+.schitxt {
+  position: absolute;
+  flex-shrink: 0;
+  display: inline-flex;
+  padding: 21px 29px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 25px;
+  background: #fff;
+  z-index: 500;
+}
+.fa1 p,
+.fa2 p,
+.fa3 p,
+.mo1 p,
+.mo2 p,
+.mo3 p,
+.chi1 p,
+.chi2 p,
+.chi3 p,
+.sfatxt p,
+.smotxt p,
+.schitxt p {
+  color: #000;
+  /* text-basic */
+  font-family: "PingFang SC";
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#p3 {
+  display: none;
+}

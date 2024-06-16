@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-color: black;
+}
+
+#div4-0{
+	position: absolute;
+	display: flex;
+	left: 750px;
+	top: 40px;
+}
+	
+#div4-0 p{
+	color: #F2F2F2;
+	font-family: "PingFang SC";
+	font-size: 21px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.container4-0 {
+	top:50px;
+	 /* position: relative; */
+  display: flex;
+  width: 90vw;
+  /* justify-content: center; */
+}
+
+.container4-0 p{
+	color: #000;
+	/* text-basic */
+	font-family: "PingFang SC";
+	font-size: 21px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* background-color: #fff ; */
+  background: url(<path-to-image>) lightgray 25% / cover no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  -webkit-transition: all 700ms ease-in;
+  overflow: hidden;
+  
+}
+
+.panel img{
+	width:100%;
+	height:auto;
+}
+
+.inner-panel{
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #fff ; 
+	border-radius: 50px;
+	cursor: pointer;
+	flex: 0.5;
+	margin: 10px;
+	position: relative;
+	/* gap: 25px; */
+	/* -webkit-transition: all 700ms ease-in; */
+	overflow: hidden;
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+.content-4{
+	position: absolute;
+	width:90%;
+	left:5%;
+}
+	
+/* .part4{
+	display: flex;
+	gap:100px;
+} */
+
+
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
