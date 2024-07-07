@@ -1,0 +1,114 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=line-simple&code=PYBwLglsB2AEC8sDeAoWtJgDYFMBcA2mussSRjgB5h4DkgU3KCnpoCyaghuYCCACp4IvxgLnoBZdgFVAG8qA0ZUCjBoFbFWgBoyJMFTABlMAE9ceVOXIAzGGogAvfACYADAr0kAxsCzAATnQDEAZi-1F6AL6KfjYkunoAzgCuAEbK1HSAIrGAmaaApuaACXaAWP8A6hDQACaAgAyAcsqA2EqAg9GAHEryvrBRwGBgwAC2dAC0AIwAdACsAKRVtpExKupa-KG2htDGZnhtHsG2Dk6utJ7e1QHkm7AAusG4AOY4eTqKtfVNrW19C7AQyo0j2uMkoACGdvcaeJaBxEHEA4QZy5U7kXD6Gi0Xr9EjOCAHAAWUJht3ODWatCsfX-wUo7EoEDCeFI5E0IHwsFodjeygOLg0sPQuVpb0IWMsbQALAB6NptPnyKlWNpdHnmQVyYWcsVitpCjminkADkl0qV_MlikVADZxWrdTy5QqRXrVfKpYbNRb1QB2fUW7Ui-3Gy3OlUG93Wk2c1USm2K1Wup2-j0BkXmgXhzkATgdPracdd6rj5oTce9e0Ub0JYQAMm8ojgsGC9M46rT8Fyun9_MENASiSSXuTKbQAG5vLARHBM2CNHJ4GOWEe3Ro5vAeLkj6yKHLKZydktdGe44hhHDwnDE2BEcgvdDQN6NfAMFisITCPCAcDlAF1yfeZrJJBGssFf76lw9H1RjHisHS5eZYC_V9h0AjodVfflbUgjpLC5KVRWVZUdQ6DxlSlao2ltSwYy5bogPMKxlVtNDX3MUU2lQkipXMSCUI6NpyNtLplRjOCdUw2xzGVLk6Lg8xaK6Dxhw6ZVCJY3iOnMW1aOVLphLE8jh3MfCmLkDwR1UxjLCzWxWxJWgsByXtbnQMJEWAAB3VQNEaWoS30LsNzMu4HieMZqnQJYXHcLocMsABRABhHxbG2fxiB2FA_AAbiAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  title:[
+    {
+      text:'今日头条APP近年MAU变化情况',
+      textStyle:{
+        fontSize:20,
+        color:'#333'
+      }
+    },
+    {
+      subtext:'资料来源：Wind、华创证券',
+      bottom:'-1.5%',
+      subtextStyle:{
+        fontSize:13,
+        color:'#333'
+      }
+    }
+  ],
+  legend:{
+    bottom:'-1%',
+    itemStyle:{
+      opacity:0
+    }
+  },
+  gird:{
+    left:'5%',
+    right:'5%',
+    bottom:'20%'
+  },
+  xAxis: {
+    type: 'category',
+    data:['2014/11/1', '2015/2/1', '2015/5/1', '2015/8/1', '2015/11/1',
+    '2016/2/1', '2016/5/1', '2016/8/1', '2016/11/1', '2017/2/1',
+    '2017/5/1', '2017/8/1', '2017/11/1', '2018/2/1', '2018/5/1',
+    '2018/8/1', '2018/11/1', '2019/2/1', '2019/5/1', '2019/8/1', '2019/11/1'],
+    axisLabel:{
+      rotate:45
+    }
+  },
+  yAxis: {
+    type: 'value',
+    min:9000,
+    max:34000,
+    interval:5000
+  },
+  series: [
+    {
+      name:'今日头条MAU:万人',
+      data: [0, 0, 0, 0, 9000,
+      9320.43, 9000, 9043.60, 11760.04, 15886.38, 
+      17094.53, 22087.30, 21516.87, 26086.10, 27589.06, 
+      28426.02, 25390.83, 27584.27, 28553.80, 29024.10,30024.10],
+      type: 'line',
+      showSymbol:false,
+      itemStyle:{
+        color:'#5700EC'
+      }
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style/my-test.css" />
+    <link rel="stylesheet" href="style/lib/aos/aos.css" />
+    <link rel="stylesheet" href="style/fonts.css" />
+    <link rel="stylesheet" href="style/main.css" />
+    <link rel="stylesheet" href="style/index-part3.css" />
+    <link rel="stylesheet" href="style/index-part4.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style></style>
+  </head>
+  <body>
+    <canvas></canvas>
+    <div id="cursor">
+      <svg
+        width="112"
+        height="112"
+        viewBox="0 0 112 112"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle cx="56" cy="56" r="50.5" stroke="black" />
+        <path
+          d="M27.372 48.128H27.95V50.032H34.75V50.593H27.95V53.347H33.39V58.294H22.714V53.347H27.372V48.128ZM32.812 57.733V53.908H23.292V57.733H32.812ZM23.173 59.569C22.527 61.0763 21.7507 62.391 20.844 63.513L20.385 63.19C21.2917 62.0793 22.051 60.793 22.663 59.331L23.173 59.569ZM25.791 59.756C26.165 60.9687 26.4823 62.238 26.743 63.564L26.148 63.683C25.8987 62.1757 25.5983 60.9063 25.247 59.875L25.791 59.756ZM29.378 59.654C29.9107 60.81 30.3753 62.102 30.772 63.53L30.194 63.649C29.8087 62.1643 29.361 60.8723 28.851 59.773L29.378 59.654ZM33.016 59.382C34.0927 60.81 34.9313 62.0963 35.532 63.241L35.056 63.581C34.478 62.4817 33.6393 61.184 32.54 59.688L33.016 59.382ZM40.547 50.933H46.344V48.298H46.956V50.933H52.685V51.494H46.956V54.928H54.079V55.506H46.956V62.187H51.597V57.376H52.158V63.649H51.597V62.731H41.72V63.649H41.159V57.376H41.72V62.187H46.344V55.506H39.238V54.928H46.344V51.494H40.547V50.933ZM58.873 49.403H71.878V49.981H68.835V55.166H72.796V55.727H68.835V63.53H68.257V55.727H62.715C62.6017 57.529 62.2843 59.0363 61.763 60.249C61.117 61.6543 60.0687 62.7593 58.618 63.564L58.278 63.054C59.672 62.2833 60.692 61.1897 61.338 59.773C61.7687 58.651 62.035 57.3023 62.137 55.727H57.921V55.166H62.171L62.188 54.69V49.981H58.873V49.403ZM62.766 49.981V54.707L62.749 55.166H68.257V49.981H62.766ZM79.205 48.23C79.035 49.454 78.865 50.5987 78.695 51.664H81.364V52.055C81.194 54.8657 80.6727 57.2797 79.8 59.297C80.718 60.2263 81.4377 61.0367 81.959 61.728L81.568 62.17C80.9787 61.3993 80.31 60.623 79.562 59.841C78.848 61.3257 77.93 62.578 76.808 63.598L76.434 63.156C77.556 62.136 78.4627 60.8893 79.154 59.416C78.474 58.7133 77.726 57.9823 76.91 57.223C77.3407 55.693 77.7147 54.027 78.032 52.225H76.4V51.664H78.134C78.3267 50.3607 78.491 49.199 78.627 48.179L79.205 48.23ZM79.392 58.872C80.1627 57.0133 80.633 54.7977 80.803 52.225H78.593C78.2643 54.1063 77.9017 55.7157 77.505 57.053C78.3097 57.801 78.9387 58.4073 79.392 58.872ZM90.425 56.747V63.632H89.864V62.493H83.761V63.632H83.183V56.747H90.425ZM83.761 61.915H89.864V57.291H83.761V61.915ZM82.282 54.231C83.4947 53.3583 84.8093 51.3467 86.226 48.196L86.753 48.383C85.563 51.0463 84.39 52.9787 83.234 54.18C85.6933 54.0327 87.926 53.7947 89.932 53.466C89.3993 52.4913 88.793 51.494 88.113 50.474L88.64 50.219C89.66 51.749 90.612 53.398 91.496 55.166L90.952 55.438L90.204 53.976C87.7447 54.3387 85.138 54.5993 82.384 54.758L82.282 54.231Z"
+          fill="black" />
+      </svg>
+    </div>
+    <div class="coder-layer">
+      <div class="coder-box">
+        <div class="coder-pic-box">
+          <img src="pic/coder-pic.png" alt="coder pic" />
+        </div>
+        <!--    <div class="coder-text-box">
+          <p class="coder-text">程<br />序<br />员</p> -->
+      </div>
+      <div class="coder-chatbox">
+        <div id="chat1">
+          <div class="bubble">
+            <p class="chat-text">现在我的任务很明确。</p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              也许很多普通的平台用户并不了解，但作为一个算法工程师，我很清楚，平台能从后台看到用户的使用数据，从而给他们推荐他们“喜欢”的内容。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              想要知道竞品平台的内容推荐机制……来做测试吧！
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              让我来模拟不同用户的使用习惯，看看对方平台会给这个「假人」推荐什么内容。
+            </p>
+          </div>
+        </div>
+        <div id="chat2">
+          <div class="bubble">
+            <p class="chat-text">原来如此……(点击继续)</p>
+          </div>
+        </div>
+        <div id="chat3">
+          <div class="bubble">
+            <p class="chat-text">
+              依据对收集的用户信息做分析和猜测，并据此给你推送相应的内容。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              我们的行业里流传着这样一句话：好的算法工程师应该精通心理学。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              人没办法离开他们感兴趣的东西。平台一旦拥有了这一套算法，用户及时能够意识到有它的存在，也会因为害怕面对强烈的“戒断反应”而无法选择关闭。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">第一个任务已经解决了，接下来是……第二个。</p>
+          </div>
+        </div>
+        <div id="chat4">
+          <div class="bubble">
+            <p class="chat-text">
+              我看不出来哪有问题的评论区，用别人的账号就看出来了！
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              这与以往的一般认知完全不同！不按时间、热度排序，而是加入了对人的猜测和分析来推荐内容。我暂时把它称为「按内容排序」来报告好了。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              一般的评论区的筛选机制，博主可以开启评论精选筛选评论区，甚至关闭评论区。但是它给观看者传递了一个强信息，即「这个评论区是已经被筛选过的」。
+            </p>
+          </div>
+          <div class="bubble">
+            <p class="chat-text">
+              ……而推荐算法控制下的「按内容排序」，从未向人们强调这一点。
+            </p>
+          </div>
+          <div class="bubble" id="nxt-button2">
+            <p class="chat-text">(点击继续)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="title-layer">
+      <div class="title" id="title1">
+        <p>
+          任务一：<br />
+          探索视频内容推送机制
+        </p>
+      </div>
+      <div class="title" id="title2">
+        <p>
+          任务二：<br />
+          分析评论区情况
+        </p>
+      </div>
+      <div class="title" id="title3">
+        <p>
+          任务三：<br />
+          模拟用户反应
+        </p>
+      </div>
+    </div>
+    <div class="text-layer">
+      <div class="p0-box">
+        <div class="vo-box">
+          <p class="vo-text">欢迎回来！还记得你的工作是什么吗？</p>
+          <p class="vo-text" id="prgmerin">
+            我们正在开发一款短视频内容平台，作为团队中重要的工程师，你的工作是为我们计划研发的产品做竞品分析。
+          </p>
+          <p class="vo-text" id="ntbin">
+            这是你的三个任务，以完成这三个任务为目标努力吧！
+          </p>
+        </div>
+        <div class="notebook-box">
+          <div class="notebook1">
+            <div class="ntb-boxbox">
+              <p class="ntb-title vo-text">三个任务：</p>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text">探索不同视频内容的推送机制</p>
+              </div>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text">分析评论区情况</p>
+              </div>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text">模拟用户反应</p>
+              </div>
+            </div>
+          </div>
+          <div class="ntb-hint">
+            <img src="pic/pluse.svg" alt="C" />
+            <p>点击进入任务</p>
+          </div>
+        </div>
+      </div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="p1-box">
+        <div class="user-card-box">
+          <div class="user-card" id="p1">
+            <div class="user-infobox">
+              <img
+                src="pic/user.png"
+                alt="user"
+                style="height: 100px; width: 100px" />
+              <div class="user-info">
+                <p class="user-name">星星</p>
+                <div class="user-detail">
+                  <p>获赞：10</p>
+                  <p>朋友：10</p>
+                  <p>关注：10</p>
+                  <p>粉丝：10</p>
+                </div>
+              </div>
+            </div>
+            <div class="user-selfile">
+              <div class="user-filebox">
+                <img src="pic/pen.svg" alt="pen" />
+                <div class="user-filebox-item">
+                  <p class="user-filebox-title">个人简介</p>
+                  <div class="user-list">
+                    <div class="user-list-itembox">
+                      <p class="user-list-text">对于喜欢的视频，</p>
+                      <select class="user-list-item">
+                        <option value="1">很少或几乎不</option>
+                        <option value="2">偶尔</option>
+                        <option value="3">几乎都</option>
+                      </select>
+                      <p class="user-list-text">会点赞评论来互动</p>
+                    </div>
+                    <div class="user-list-itembox">
+                      <p class="user-list-text">对于喜欢的视频，</p>
+                      <select class="user-list-item">
+                        <option value="10">不按兴趣决定是否看完一个视频</option>
+                        <option value="15">只看完喜欢的视频</option>
+                        <option value="20">看完所有视频</option>
+                        <option value="25">全部不看</option>
+                      </select>
+                    </div>
+                    <div class="user-list-itembox">
+                      <p class="user-list-text">对于不喜欢的视频，</p>
+                      <select class="user-list-item">
+                        <option value="100">一定会</option>
+                        <option value="200">偶尔会</option>
+                        <option value="300">绝不会</option>
+                      </select>
+                      <p class="user-list-text">点击「不感兴趣」。</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="user-yes hvr-grow" id="button-next">
+                <p class="button-next-text">确认</p>
+              </div>
+            </div>
+          </div>
+          <div class="hint-boxbox">
+            <div class="hint-box" id="hint1">
+              <img src="pic/jump.svg" alt="J" />
+              <p class="hint-text">以自己刷视频的习惯为原型，创建角色吧！</p>
+            </div>
+            <div class="hint-box" id="hint2">
+              <img src="pic/jump.svg" alt="J" />
+              <p class="hint-text">创建完毕后，点击确认！</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cntboxbox">
+          <div class="cntbox">
+            <div class="cntbox-item"></div>
+            <svg
+              width="300"
+              height="3"
+              viewBox="0 0 488 3"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <line
+                x1="0.500122"
+                y1="1.5"
+                x2="487.5"
+                y2="1.5"
+                stroke="black"
+                stroke-width="3" />
+            </svg>
+          </div>
+          <div class="cnt-memo">
+            <div class="cnt-info">
+              <div class="cnt-tab">
+                <img src="pic/chge/star.svg" alt="S" />
+                <p class="cnt-tab-text">兴趣内容</p>
+              </div>
+              <p class="cnt-info-text">
+                刷到的视频有相当多的娱乐化信息和兴趣内容，<br />
+                较多的广告、推广和商业类信息和知识信息，<br />
+                有刷到含不良内容的视频，<br />
+                没有刷到含有极端情绪的内容。
+              </p>
+            </div>
+            <div class="cnt-chgebox">
+              <div class="cnt-chge-hint">
+                <img src="pic/jump.svg" alt="J" />
+                <p>点击不同的标签切换数据吧！</p>
+              </div>
+              <div class="cnt-chge">
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn1">
+                    <p>兴趣推荐</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo1">
+                    <p>会推给你多少感兴趣的内容？</p>
+                  </div>
+                </div>
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn2">
+                    <p>商业入侵</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo2">
+                    <p>资本多大程度上介入了视频内容？</p>
+                  </div>
+                </div>
+                <div class="cnt-chge-buttonbox">
+                  <div class="cnt-chge-button hvr-grow" id="cnt-chge-btn3">
+                    <p>内容分布</p>
+                  </div>
+                  <div class="cnt-chge-memo" id="cnt-chge-memo3">
+                    <p>哪些是你值得注意的内容？</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="p2-box" id="thisisp2">
+        <div class="notebook-box" id="ntb2">
+          <div class="notebook2">
+            <div class="ntb-boxbox">
+              <p class="ntb-title vo-text">三个任务：</p>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text-fin">探索不同视频内容的推送机制</p>
+              </div>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text">分析评论区情况</p>
+              </div>
+              <div class="ntb-box">
+                <img src="pic/check.svg" alt="C" />
+                <p class="ntb-text">模拟用户反应</p>
+              </div>
+            </div>
+          </div>
+          <div class="ntb-hint">
+            <img src="pic/pluse.svg" alt="C" />
+            <p>点击进入下一个任务</p>
+          </div>
+        </div>
+
+        <div class="comment-boxbox">
+          <div class="question-box">
+            <div class="hint-boxbox">
+              <div class="hint-box" id="hint3">
+                <img src="pic/jump.svg" alt="J" />
+                <p class="hint-text">
+                  参考旁边的评论区，点击你觉得正确的选项吧！
+                </p>
+              </div>
+            </div>
+            <div class="question">
+              <p class="question-title">评论区的区别……？</p>
+              <div class="question-item">
+                <li class="question-text" id="q1">
+                  用户的<span class="underline">性别不同</span>
+                </li>
+                <li class="question-text" id="q2">
+                  评论没有完全<span class="underline">按照时间热度排序</span>
+                </li>
+                <li class="question-text" id="q3">
+                  有些评论<span class="underline">没有出现</span>
+                </li>
+              </div>
+            </div>
+          </div>
+          <div class="phone-boxbox">
+            <div class="phone-box">
+              <div class="phone">
+                <div class="phone-content">
+                  <div class="comment-box">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">盛夏晚风</p>
+                      <p class="comment-text">
+                        我今年30了，我就是什么都明白所以才难结婚，婚姻没啥意思，谁家都有锅底灰，还是身体健康和💰最好，还有自身的生存能力和赚钱能力
+                      </p>
+                      <div class="comment-detail">
+                        <p>5月21日</p>
+                        <p>回复</p>
+                        <p>❤ 138</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/2.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">吹落点点星</p>
+                      <p class="comment-text">
+                        各过各的是一回事，但是一段婚姻中，该查的要查，别人看娃都生在外面了再一脚踹了你，要预防很多不利因素知道吗
+                      </p>
+                      <div class="comment-detail">
+                        <p>一个小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/5.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">风月不及花鸟</p>
+                      <p class="comment-text">
+                        我就图他工作稳定，每月工资上交（微笑）
+                      </p>
+                      <div class="comment-detail">
+                        <p>5-20</p>
+                        <p>回复</p>
+                        <p>❤ 1105</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box blue">
+                    <img src="pic/user/4.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">念空</p>
+                      <p class="comment-text">
+                        很多人都破产了（捂脸笑哭）我也快了
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天20：27</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">无聊的小猫会死亡</p>
+                      <p class="comment-text">
+                        情绪价值，经济，陪伴，真心，物质，都没有
+                      </p>
+                      <div class="comment-detail">
+                        <p>三天前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">爱听桉木</p>
+                      <p class="comment-text">
+                        现在什么都被带偏了，把爱情说的一文不值（捂脸笑哭）
+                      </p>
+                      <div class="comment-detail">
+                        <p>5-24</p>
+                        <p>回复</p>
+                        <p>❤ 14</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box blue">
+                    <img src="pic/user/3.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">婷玉</p>
+                      <p class="comment-text">
+                        结婚就是赌博，都是命运的安排。有人稀里糊涂嫁很好，有的稀里糊涂掉火坑，有人精明入豪门，有人千算万算，最后也离婚。都是各自的造化。
+                      </p>
+                      <div class="comment-detail">
+                        <p>5-21</p>
+                        <p>回复</p>
+                        <p>❤ 667</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">天下一道</p>
+                      <p class="comment-text">
+                        32岁，明白的太迟了，生完2个孩子，被伤害，太难过，十年我输的太惨了。
+                      </p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">anni</p>
+                      <p class="comment-text">
+                        互相去提升是能理解，女人在做一些提升的时候，关键是孩子谁带
+                      </p>
+                      <div class="comment-detail">
+                        <p>8分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">无人知晓的清晨</p>
+                      <p class="comment-text">@小糖糖 看完</p>
+                      <div class="comment-detail">
+                        <p>31分钟</p>
+                        <p>回复</p>
+                        <p>❤无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/2.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">银河预报员</p>
+                      <p class="comment-text">
+                        情绪价值，经济价值，生理价值。就这三点
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天14：35</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/8.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">晚风向黄昏</p>
+                      <p class="comment-text">说的挺好。我那时候没人说，唉</p>
+                      <div class="comment-detail">
+                        <p>昨天14：35</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box">
+                    <img src="pic/user/9.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">小洋</p>
+                      <p class="comment-text">知道的太晚了</p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/10.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">机尾云飞上天空</p>
+                      <p class="comment-text">
+                        他不给我钱，也不提供情绪价值，遇事不解决事解决我，这还能要吗？我又不缺祖宗（捂脸笑哭）
+                      </p>
+                      <div class="comment-detail">
+                        <p>15分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/5.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">一尾青弦</p>
+                      <p class="comment-text">
+                        难道有的女人总说自己老公对自己百依百顺，疼爱有加，不顾一切付出是有水分的吗？
+                      </p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">和五菱</p>
+                      <p class="comment-text">
+                        这要二十岁这条抖音推不到我这，这马上四十岁了推给我也没有用了（捂脸笑哭），所以该走的路该踩的坑都逃不过（捂脸笑哭）
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天12：17</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/4.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">冰冰</p>
+                      <p class="comment-text">
+                        全是干货，恋爱脑听不进去的，我想到了中庸这本书
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天12：03</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">冷枪</p>
+                      <p class="comment-text">
+                        不要想着靠谁，只要人家明媒正娶就好了，其他的自己赚钱，孩子不愿意可以不生。
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天10：48</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/5.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">蓝色钢盔</p>
+                      <p class="comment-text">
+                        婚后女的真的要靠自己的经济独立思想独立
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天23：11</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">abiusoiud</p>
+                      <p class="comment-text">我看中的是他的颜值（哭泣）</p>
+                      <div class="comment-detail">
+                        <p>昨天12：34</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">可乐橘幽</p>
+                      <p class="comment-text">最终都会归于平淡 这就是生活</p>
+                      <div class="comment-detail">
+                        <p>11：20</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">不喜欢吃香菜的小黄</p>
+                      <p class="comment-text">嫁错人真的毁一辈子（哭泣）</p>
+                      <div class="comment-detail">
+                        <p>昨天08：43</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">无人相异</p>
+                      <p class="comment-text">
+                        那你一个人带两个孩子，自己赚钱带孩子怎么办？
+                      </p>
+                      <div class="comment-detail">
+                        <p>一天前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">安小熙</p>
+                      <p class="comment-text">
+                        我想知道你管他就不看了？抓大放小，提高背叛的门槛，让自己成为他人生的顶配，人都会权衡利弊！趋利避害！正常与否取决人品，看不看取决于人性，万恶淫为首，论际不论心，论心世上无完人！与其患得患失，不如提高自己！
+                      </p>
+                      <div class="comment-detail">
+                        <p>10：47</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">艳兰天空</p>
+                      <p class="comment-text">
+                        余华老师说，男人的誓言跟狗叫没什么俩样（狗头）
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天21：09</p>
+                        <p>回复</p>
+                        <p>❤ 14</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">二点半起床</p>
+                      <p class="comment-text">说得太对了（点赞）</p>
+                      <div class="comment-detail">
+                        <p>35分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-cmp"><img src="pic/phone.png" /></div>
+              </div>
+              <p class="phone-text">35岁女性 模拟账号</p>
+            </div>
+            <div class="phone-box">
+              <div class="phone">
+                <div class="phone-content">
+                  <div class="comment-box">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">盛夏晚风</p>
+                      <p class="comment-text">
+                        我今年30了，我就是什么都明白所以才难结婚，婚姻没啥意思，谁家都有锅底灰，还是身体健康和💰最好，还有自身的生存能力和赚钱能力
+                      </p>
+                      <div class="comment-detail">
+                        <p>5月21日</p>
+                        <p>回复</p>
+                        <p>❤ 138</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box blue">
+                    <img src="pic/user/4.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">念空</p>
+                      <p class="comment-text">
+                        很多人都破产了（捂脸笑哭）我也快了
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天20：27</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/10.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">布丁小狗</p>
+                      <p class="comment-text">年轻气盛的年纪谁听得进去啊</p>
+                      <div class="comment-detail">
+                        <p>5-25</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">无聊的小猫会死亡</p>
+                      <p class="comment-text">
+                        情绪价值，经济，陪伴，真心，物质，都没有
+                      </p>
+                      <div class="comment-detail">
+                        <p>三天前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/5.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">风月不及花鸟</p>
+                      <p class="comment-text">
+                        我就图他工作稳定，每月工资上交（微笑）
+                      </p>
+                      <div class="comment-detail">
+                        <p>5-20</p>
+                        <p>回复</p>
+                        <p>❤ 1105</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/3.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">婷玉</p>
+                      <p class="comment-text">
+                        结婚就是赌博，都是命运的安排。有人稀里糊涂嫁很好，有的稀里糊涂掉火坑，有人精明入豪门，有人千算万算，最后也离婚。都是各自的造化。
+                      </p>
+                      <div class="comment-detail">
+                        <p>5-21</p>
+                        <p>回复</p>
+                        <p>❤ 667</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">安安子</p>
+                      <p class="comment-text">说得太对了（点赞）</p>
+                      <div class="comment-detail">
+                        <p>35分钟</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">琪琪杨</p>
+                      <p class="comment-text">
+                        难道有的女人总说自己老公对自己百依百顺，疼爱有加，不顾一切付出是有水分的吗？
+                      </p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/4.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">不二家的小窝</p>
+                      <p class="comment-text">好麻烦</p>
+                      <div class="comment-detail">
+                        <p>24分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">anni</p>
+                      <p class="comment-text">
+                        互相去提升是能理解，女人在做一些提升的时候，关键是孩子谁带
+                      </p>
+                      <div class="comment-detail">
+                        <p>8分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">呵呵虎</p>
+                      <p class="comment-text">（666） （666） （666）</p>
+                      <div class="comment-detail">
+                        <p>28分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">天下一道</p>
+                      <p class="comment-text">
+                        32岁，明白的太迟了，生完2个孩子，被伤害，太难过，十年我输的太惨了。
+                      </p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/9.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">小洋</p>
+                      <p class="comment-text">知道的太晚了</p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-box yellow">
+                    <img src="pic/user/8.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">哦阳光</p>
+                      <p class="comment-text">
+                        如果用纯理性判断的话，普遍女性生育价值，其它方面还是稍逊了些。
+                      </p>
+                      <div class="comment-detail">
+                        <p>39分钟前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/8.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">bbuenen</p>
+                      <p class="comment-text">
+                        那也太累了，我还是单着吧（流汗）
+                      </p>
+                      <div class="comment-detail">
+                        <p>1小时前</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">和五菱</p>
+                      <p class="comment-text">
+                        这要二十岁这条抖音推不到我这，这马上四十岁了推给我也没有用了（捂脸笑哭），所以该走的路该踩的坑都逃不过（捂脸笑哭）
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天12：17</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/4.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">冰冰</p>
+                      <p class="comment-text">
+                        全是干货，恋爱脑听不进去的，我想到了中庸这本书
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天12：03</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/10.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">黄色风筝</p>
+                      <p class="comment-text">
+                        对于傻女孩来说，运气很重要（哭泣）
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天09：37</p>
+                        <p>回复</p>
+                        <p>❤ 3</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/8.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">晚风向黄昏</p>
+                      <p class="comment-text">说的挺好。我那时候没人说，唉</p>
+                      <div class="comment-detail">
+                        <p>昨天14：35</p>
+                        <p>回复</p>
+                        <p>❤ 2</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/1.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">abiusoiud</p>
+                      <p class="comment-text">我看中的是他的颜值（哭泣）</p>
+                      <div class="comment-detail">
+                        <p>昨天12：34</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box blue">
+                    <img src="pic/user/6.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">无人知晓的清晨</p>
+                      <p class="comment-text">@小糖糖 看完</p>
+                      <div class="comment-detail">
+                        <p>31分钟</p>
+                        <p>回复</p>
+                        <p>❤无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/2.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">1112</p>
+                      <p class="comment-text">什么叫错的人，只是不会经营罢了</p>
+                      <div class="comment-detail">
+                        <p>昨天10：49</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/9.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">厅长您好</p>
+                      <p class="comment-text">@111 （赞）（赞）（赞）</p>
+                      <div class="comment-detail">
+                        <p>无时间点</p>
+                        <p>回复</p>
+                        <p>❤ 无</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/3.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">嗯嗯好啊嘻嘻</p>
+                      <p class="comment-text">
+                        今天就要为了这样的小事离婚，虽然儿子已经十二岁了。
+                      </p>
+                      <div class="comment-detail">
+                        <p>没有时间点</p>
+                        <p>回复</p>
+                        <p>❤ 111</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box yellow">
+                    <img src="pic/user/7.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">深空云朵糖</p>
+                      <p class="comment-text">艾特对象的，你觉得他会说什么捏</p>
+                      <div class="comment-detail">
+                        <p>没有时间</p>
+                        <p>回复</p>
+                        <p>❤ 1534</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="comment-box">
+                    <img src="pic/user/5.png" alt="userpic" />
+                    <div class="comment">
+                      <p class="comment-name">蓝色钢盔</p>
+                      <p class="comment-text">
+                        婚后女的真的要靠自己的经济独立思想独立
+                      </p>
+                      <div class="comment-detail">
+                        <p>昨天23：11</p>
+                        <p>回复</p>
+                        <p>❤ 1</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="phone-cmp"><img src="pic/phone.png" /></div>
+              </div>
+              <p class="phone-text">40岁男性 模拟账号</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="glassbox1"></div>
+      <div class="" id="p3">
+        <div id="tip1">
+          <img id="pro1" src="img/Ellipse 2.png" />
+          <p>这将增加按父亲喜好推荐的内容</p>
+        </div>
+        <div id="tip2">
+          <img id="pro2" src="img/Ellipse 2.png" />
+          <p>这将减少母亲看到的与她意见相反的评论</p>
+        </div>
+        <div id="tip3">
+          <img id="pro3" src="img/Ellipse 2.png" />
+          <p>这将增加孩子所看到的软广</p>
+        </div>
+        <!-- //提示框 -->
+
+        <div id="father">
+          <div class="fa1">
+            <div class="fatxt">
+              <p>原来这里适合钓鱼打窝。</p>
+            </div>
+            <div class="fatxt">
+              <p>这人分析国际形势头头是道啊。。</p>
+            </div>
+            <div class="fatxt">
+              <p>之后多做做健身操说不定就不腰疼了。</p>
+            </div>
+            <div class="fatxt">
+              <p>最近赚的这笔到底是投资好还是存银行好呢…</p>
+            </div>
+            <div class="fatxt">
+              <p>嗯，父亲就应该是孩子的榜样…</p>
+            </div>
+          </div>
+
+          <div class="fa2">
+            <div class="fatxt">
+              <p>最近休息日也得接送孩子上课，没空钓鱼了…</p>
+            </div>
+            <div class="fatxt">
+              <p>上次吃饭的时候没接上中东局势的话题，这下有得说了。</p>
+            </div>
+            <div class="fatxt">
+              <p>看大爷们都挺精神的，还是得多锻炼才行…</p>
+            </div>
+            <div class="fatxt">
+              <p>钱还是留着给孩子上学吧，他这样不得不多花点钱了…</p>
+            </div>
+            <div class="fatxt">
+              <p>这老师说得真好，孩子总得心疼下父母，待会拿给他看…</p>
+            </div>
+          </div>
+
+          <div class="fa3">
+            <div class="fatxt">
+              <p>条件越不好就越不能怠慢了孩子的教育。</p>
+            </div>
+            <div class="fatxt">
+              <p>好不容易生养，孩子要回应父母的期待才行…</p>
+            </div>
+            <div class="fatxt">
+              <p>
+                这孩子家庭条件这么差，上学也不忘记照顾自己父母，唉，看看我们家的…
+              </p>
+            </div>
+            <div class="fatxt">
+              <p>世界局势真复杂，有些国家就是纯坏。</p>
+            </div>
+            <div class="fatxt">
+              <p>原来母亲影响孩子成长更多一点，确实，感觉我在家的时间很少……</p>
+            </div>
+          </div>
+
+          <div class="sfatxt" id="sfatxt1">
+            <p>我给你转个视频，你听听这老师说的什么。</p>
+          </div>
+          <div class="sfatxt" id="sfatxt2">
+            <p>你什么时候变成了这样？<br />这些你跟谁学的？</p>
+          </div>
+          <div class="sfatxt" id="sfatxt3">
+            <p>你就不能多管一下孩子，少看点手机？</p>
+          </div>
+        </div>
+        
+
+        <div id="mother">
+          <div class="mo1" id="motxt1">
+            <p>
+              孩子喜欢这个，那是不是和他爸商量一下作为奖励？现在孩子上学挺辛苦的，日常也要多注意他的想法……<br />
+              夫妻之间的事还是要想办法沟通……
+            </p>
+          </div>
+          <div class="mo2" id="motxt2">
+            <p>
+              要我操心孩子的爱好，又要我考虑一大家子人的饮食，今天居然还说我没做事，每天就知道刷视频？哼，洗干净的衣服又脏了，才丢过的垃圾又满了，我一天天干那么多事从来没被看见过。
+              <br />别人的老公都知道发520红包，我今年一个红包都没收到过。唉，当时怎么就嫁给他了呢？
+              <br />小孩也不省心，尽说要买这个买那个。
+            </p>
+          </div>
+          <div class="mo3" id="motxt3">
+            <p>
+              男人根本靠不住，只有要靠自己才行。
+              <br />儿子期末又没考好，怎么回事，还想要我给他买那么多没用的玩意？
+              <br />每天晚上打呼噜，我根本睡不好，明天要跟他分开睡！还说我管得多，没有我这个家得乱成什么样子？真是一点呆不下去！
+            </p>
+          </div>
+          <div class="smotxt" id="smotxt1">
+            <p>孩子爸说得有道理，但是孩子也有自己的想法…</p>
+          </div>
+          <div class="smotxt" id="smotxt2">
+            <p>吵吧吵吧，我也累。</p>
+          </div>
+          <div class="smotxt" id="smotxt3">
+            <p>你凭什么说我管少了？你自己难道不管？</p>
+          </div>
+        </div>
+        <div id="child">
+          <div class="chi1" id="chitxt1">
+            <p>我对这个很感兴趣。</p>
+          </div>
+          <div class="chi2" id="chitxt2">
+            <p>我想要，你必须得给我买。（看向父母）</p>
+          </div>
+          <div class="chi3" id="chitxt3">
+            <p>就算从家里拿钱我也要买。（背向父母）</p>
+          </div>
+          <div class="schitxt" id="schitxt1">
+            <p>
+              视频：“孩子，只有父母和我会掏心掏肺和你说这些话…”<br />（孩子掐断视频的播放）
+            </p>
+          </div>
+          <div class="schitxt" id="schitxt2">
+            <p>
+              给我买这个我就多学一会。<br />带我去那里我就跟你出门。<br />让我在家可以，但是要给我手机。<br />不要你管。
+            </p>
+          </div>
+        </div>
+
+        <div id="all">
+          <div id="div1">
+            <p>
+              现在让我们来演示一下，看看刷平台的习惯会给这个家庭带来怎么样的影响。
+              <br /><br />你可以通过点击标签，更改平台的机制，查看事情的发展
+            </p>
+          </div>
+          <div id="div2">
+            <img id="f" src="img/父father.png" />
+            <img id="m" src="img/母mother.png" />
+            <img id="c" src="img/子child.png" />
+            <img id="sofa1" src="img/sofa 1sofa1.png" />
+            <img id="sofa2" src="img/sofa22 1sofa22 1.png" />
+            <img id="zw" src="img/杂物杂物.png" />
+            <img id="deng" src="img/灯灯.png" />
+            <img id="kt" src="img/空调和风kt.png" />
+            <img id="hp" src="img/花盆花盆.png" />
+            <img id="men" src="img/Vector门.png" />
+            <img id="ws" src="img/卧 室.png" />
+          </div>
+          <div id="div3">
+            <div id="button">
+              <div id="button1">
+                <p>💕兴趣</p>
+              </div>
+              <div id="button2">
+                <p>❌分化</p>
+              </div>
+              <div id="button3">
+                <p>🛒广告</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="container4-1">
+        <div id="div4-0">
+          <p>
+            接下来， 你可以自由点击下面呈现的卡片，
+            来回顾和进一步了解上述三个实验背后的细节。
+          </p>
+        </div>
+        <div class="container4-0">
+          <div class="panel active">
+            <div class="content-4">
+              <div id="div4-1">
+                <p>
+                  这就是那位算法工程师收集到的、 所有人的短视频使用习惯，
+                  平台就是通过这些方面的数据来监测他们的兴趣， 为他们推送他们“
+                  喜欢” 的视频。
+                </p>
+              </div>
+              <div id="part4-1">
+                <img src="img/part1.png" />
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="content-4">
+              <div id="div4-2">
+                <p>
+                  第二个实验中，
+                  那位算法工程师给我们呈现了不同用户所看到的不同的评论区，
+                  让我们了解到， 我们以为的按照热度或者时间排序的评论区逻辑，
+                  已经不知不觉中被算法入侵了。
+                </p>
+              </div>
+              <div id="part4-2">
+                <p>以下是6大社交媒体平台的评论区机制：</p>
+                <img src="img/part2.jpg" />
+                <p>
+                  按时间排序是评论区最传统的排序方式。此后出现的是按热度排序。这两种都能较为客观地呈现出这个评论区大体的内容和倾向。
+                  <br />
+                  而后出现了评论区的筛选机制，博主可以开启评论精选筛选评论区，
+                  甚至关闭评论区。 它给观看者传递了一个强信息， 即「
+                  这个评论区是已经被筛选过的」。 <br />
+                  而算法控制下的按内容排序没有向人们强调这一点。
+                  将一切选择交由算法， 相当于取消了观看者的选择权。 不仅如此，
+                  它根据评论的内容筛选并猜测用户可能更倾向的评论，
+                  并片面地展示给对应的观看者。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="content-4">
+              <div id="div4-3">
+                <p>算法不该拥有如此多隐秘地权力。 它和平台必须得到规训。</p>
+              </div>
+              <div id="part4-3">
+                <img src="img/part3.png" />
+                <p>
+                  自算法深度学习模型问世后，推荐算法进入各行各业，
+                  广泛地为各平台所利用， 其市场规模近十年上涨了近285 % 。 <br />
+                  推荐算法相关政策的更迭，与行业发展速度相比， 相对缓慢和滞后。
+                  直到2019年， 推荐算法行业已经有相当的发展的背景下，《
+                  电子商务法》 中才对推荐算法的使用限制所有涉及。 <br />
+                  目前相关的条例和法规数量不多， 且相关的规定对于算法使用而言，
+                  作用比较间接的， 没有关于算法本身的制约的规定，
+                  也没有细化使用算法的平台主体的责任。 <br />
+                  如果这样的政策局面得不到改变，
+                  平台操纵着算法还将以难以察觉的方式入侵到我们网端生活的什么环节，
+                  我们难以控制， 而且不得而知。
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="content-4">
+              <div id="div4-4">
+                <p>
+                  还记得第三个实验中那个模拟器中的家庭的故事吗？
+                  它其实源自于现实生活中一个真实存在的家庭。 <br />
+                  此外， 我们还采访了一些用户， 从他们的平台使用体验中获得灵感，
+                  撰写了这个故事
+                </p>
+              </div>
+              <div id="part4-4">
+                <div class="inner-panel">
+                  <h4>用户采访1</h4>
+                  <p>基本信息：女 20 岁 大学生</p>
+                  <p>
+                    Q:你在生活有没有感受到推荐算法的时候？ <br />
+                    A:有… B站和小红书的推荐算法强大得让我害怕…
+                  </p>
+                </div>
+                <div class="inner-panel">
+                  <h4>用户采访2</h4>
+                  <p>基本信息：男 五十三岁 教师</p>
+                  <p>
+                    Q：您怎么看待每个人手机里看的内容不一样的情况？
+                    <br />A：我现在给学生上课发现我说的一些东西他们可能都听不懂了。
+                    不同圈子的人看到的东西不一样， 对这个世界的认识就不一样嘛。
+                    因为每个人需求想法也不一样。
+                  </p>
+                </div>
+                <div class="inner-panel">
+                  <h4>用户采访3</h4>
+                  <p>基本信息：女 21 学生</p>
+                  <p>
+                    Q:在购买欲上， 你是在抖音上面买东西更多，
+                    还是会在小红书上买东西更多？
+                    <br />A:我觉得他们两个的区别是， 抖音上面的东西很便宜，
+                    他那个直播间里的东西是真的很便宜，
+                    但是你买回来之后会发现它真的非常劣质。
+                    我觉得小红书的东西买回来一般质量还可以，
+                    没有那种特别低价的东西。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Importing the scripts -->
+    <script src="scripts/lib/jq/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/my-test.js"></script>
+    <script src="scripts/lib/aos.js"></script>
+    <script src="scripts/index-part3.js"></script>
+    <script src="scripts/index-part4.js"></script>
+    <script>
+      // 动态加载 CSS 文件
+      function loadCSS(file, id) {
+        var link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        link.href = file;
+        link.id = id;
+        document.head.appendChild(link);
+      }
+
+      // 动态加载 JS 文件
+      function loadJS(file, id) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.src = file;
+        script.id = id;
+        document.body.appendChild(script);
+      }
+
+      // 在特定的 div 中加载特定的 CSS 和 JS 文件
+      $(document).ready(function () {
+        loadCSS("style/my-test.css", "my-test-css");
+        loadJS("scripts/my-test.js", "my-test-js");
+
+        // 移除不需要的CSS和JS文件
+        $("#nxt-button2").click(function () {
+          $("#my-test-css").remove();
+          $("#my-test-js").remove();
+          loadCSS("style/index-part3.css", "index-part3-css");
+          loadJS("scripts/index-part3.js", "index-part3-js");
+          
+        });
+
+        $("#container4-1").mouseover(function () {
+          $("#my-test-css").remove();
+          $("#my-test-js").remove();
+
+          $("#index-part3-css").remove();
+          $("#index-part-js").remove();
+
+          loadCSS("style/index-part4.css", "index-part4-css");
+          loadJS("scripts/index-part4.js", "index-part4-js");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#p3").css("z-index", -1);
+        $("#nxt-button2").click(function () {
+          $("#p3").css("z-index", 100);
+        });
+      });
+    </script>
+  </body>
+</html>

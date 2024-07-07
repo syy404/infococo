@@ -1,0 +1,152 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-stack&code=PYBwLglsB2AEC8sDeAoWsD0HZmMANpCAFzJqbbpgBOEA5nQKbWkDkAhgB4QDOrANOSzpYXXgAVgEaGGalU6YSJwBPEIzY8AFuwAmwAO6shlWAF8T5wVQhh8GhSJ4BXAEazOYYqwBqEXYzAsOL47CqwAMLAzjKwAOLU0SAC5Oj2AGZerADGjDLMKcq4JKwAzACkxuhm1rD2TNC68jXkdLRNZMoZXrBllbXotHRaPawALP2psK7AYLgAtmwVhSLZMGDs0gAy7K6M-KQ0zozkLeicAILcPKQA2lOORWoavdnssnTA1CorysK673YxFurAADAJWABWCEARnB_FYMOhCIATOCALoDETQdjzDS-fyBSLURjvKBwAAS0WosGksAAqgAVCI4CB437Y3GMRmMTwAZTAKnsxEeylg6XWfIgAC8NDDSljlGt8F9vABiUqajnVRWwHF4rbAN6QGDeeb-XT2bV6rlxdgkFGQqYWdCY8gqK68O4PKZUZ5sABu7Hwx2t5ugxFBADpQaDdfMuJGYwAOXXSWTUIMHaOgmG6_X4gAijB40FsP3zXJ5_MFwtFyglMilsuI8t16GVqtYGq1vqsfYLACVZu8NABOOMDrmG43ks0Wq2VvF2kilZPO8hu9A8ZgQEve5T11TqNiudjUa08DbZADWbAuumtwkY8xAOh4Xs6YqU4qNzhuvQ7rQJZVN-2BnGKtgvgKQoOH2HYEF2bSMD8fYQcoAIbHcOaQqmsA5gAbAq-ExpCY78CRoKQpCFE5mMeawH2OYogRtExiiKJsbmADsXFtpRcIUUxMaguRAnETm_GSXhzGpsJoJjHGlGQpxyk0cpYmEaxjFipRBGaaR6k4QZoIEdx6LOliR4Fmwg4vpsZbQHQE6TLpgonr0Z4XrqV7sLe96Prqz6vu-n5Hj-ErZP-mi7iBfbCOhIhQfMMF1vBsCdiw3aQtxsYAKIRKByiJegmFArAtySWMfGqTmoIySJEkiQx8lURRAC0dVKZ1zUdXVxE9bGxF9oNpl9TGMJ4aNvGwKN6lzUJumjdpo0NUNXEKeNsZ5iN_V8dVlGiQNdXmZZPq6TZvSMqAcKuWK7kvKwXmXted69A-T7YC-b7sB-AHhaYkXRYBsV8PF4FprIKW1nBukISqWVqrGABiyaFqURUiCVsBldhtH4_hBNMRtSl1Qxe2HcNul1dp0kbTNdVGSJ6mtbTIkyQTZO6hTpP0xZxWbigZgANxAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  // tooltip: {
+  //   trigger: 'axis',
+  //   axisPointer: {
+  //     type: 'shadow'
+  //   }
+  // },
+  title:{
+    subtext:'Video Play Count Group',
+    left:'center',
+    top:'3%'
+  },
+  legend: {},
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'category',
+      // data:['0','5','10','15','20'],
+      name:'Video Creation Hour in UTC time',
+      nameTextStyle:{
+        fontSize:13,
+        color:'#333',
+      },
+      nameLocation:'middle',
+      nameGap:25
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      min:0.00,
+      max:0.08,
+      interval:0.01,
+      name:'Desnity',
+      nameTextStyle:{
+        fontSize:13,
+        color:'#333'
+      },
+      nameRotate:90,
+      nameLocation:'middle',
+      nameGap:38
+    }
+  ],
+  series: [
+    {
+      type: 'bar',
+      stack: 'Ad',
+      // emphasis: {
+      //   focus: 'series'
+      // },
+      itemStyle:{
+        color:'grey'
+      },
+      data: [0.058, 0.063, 0.059, 0.055, 0.041, 
+      0.026, 0.022, 0.017, 0.013, 0.010, 
+      0.009, 0.013, 0.013, 0.018, 0.028,
+      0.040, 0.052, 0.055, 0.059, 0.066, 
+      0.069, 0.055, 0.059, 0.067]
+    },
+    {
+      name: 'Remaining90%',
+      type: 'bar',
+      stack: 'Ad',
+      // emphasis: {
+      //   focus: 'series'
+      // },
+      itemStyle:{
+        color:'#5700EC'
+      },
+      data: [0.014, 0.012, 0.008, 0.003, 0.001, 
+      0.005, -0.000, -0.001, -0.003, -0.003, 
+      -0.006, -0.018, -0.007, -0.005, -0.005, 
+      -0.006, -0.008, 0.003, 0.004, -0.001,
+      -0.003, 0.014, 0.0093, -0.007]
+    },
+    {
+      name: 'Top10%',
+      type: 'bar',
+      stack: 'Ad',
+      // emphasis: {
+      //   focus: 'series'
+      // },
+      itemStyle:{
+        color:'#00F8D3'
+      },
+      data: [0, 0, 0, 0, 0, 
+      0, 0.000, 0.001, 0.003, 0.003, 
+      0.006, 0.018, 0.007, 0.005, 0.005, 
+      0.006, 0.008, 0, 0, 0.001,
+      0.003, 0, 0, 0.007]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

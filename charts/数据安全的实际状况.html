@@ -1,0 +1,134 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-stack-normalization&code=PTAEBUAsFMCdtAZ0gewK4BsAmoB2KAXUAIwV2gHMBDAgSwDcF6qM1pFRbdRYqB3ACI0qAKADGKXIiK9Bw0AF5QAbRGgVAJgCcAGlAaArHoDMR0AEZjAXR1rNZjQBYTGvY4027yxwDY9B8xNjNwMrESsAbnFJaVACQhYhAipFFUiRADMUWFAACgxoIlpUgAYIzlAAHh5-JKplEqsAOgLcCgJIcoBqLtoASlAAbzsCokQ0AFtSqPUsnPzC0AAraeWqmrlklug2ju6upYHh9XVxqa6lWTrlJatlWnT1AF87eOSMOqaABzRkXLO-lEXhIpEQKLBaDglMdQAUMgQAFygADkhgApMjbOoIRRIIiUejMa8UF8kcjLBisSRCPEJmSKciRE8oiDYog4LR2KlVOpkYAAdMAgZGASO1ABaKgF35QAlRoAxeUAVOaAdeVAAxKkqJvMFoslgDc9RXKqnIwCwcmrxRLGc0JlQvrlcrgqBNoHpEJCBgoAHxDOzwAhoWDcGHqa22qnqAgATy-0DJxCosBVJ2kVDEAGsyW8WDH1JHYAB1SEdMkADhKlLs6loBGgEwAyiGCgjfScJBhsgiHVCFEoSqAAPwogDEBgA7CUSgBRADCyNASJbijbFi7va0PgyGWg_YnZJ7Q-XYh8jJOoCegdhVFIGCRddOqD4SIIsDYR9m2TNBDLsCRuS-UZtiCdroAsjQkBNLA6C4FgH5fhMiBNMwrAIAAVOYQ4DKAXQohixYHkeWDCEiVzCMoLamualpYHoWCOoozqYUGCQfARFFYFYVTtvOHZIjgYApvRyTKIxYT7n0djMkygIiCSdCSKkMJ0AQNY8icF5xNAAAeiLIoADqaAHbGoqACFugB52oAommAG1OgCtinuJyHphSnjMQZZqQiyKACKxgCZpoApuaAAl2gBY_wAkgIo6ADgE2mAG-mgDHchoJSGIAKB6AG5egC4BIAMP-ADB6gDuxoAerGAJVKCUReY_aAC56xiABDmaaxmgdmqQQVbBjWSmPrglW0AAXuG5hGDR9YoI2b7Ij2xh9RZ-5Wfu6Y0igdIlA-sLQPCjkRRhg12J46gFBQOxYOemHsgUYhllgf4oFg4agBkLDske2ScvVjmMLAdBiKmR7xKSyITJCWAFCVcLqRo81YXY4KQlSwYAIIqbQiAbfuIBxKGR3IvdZYUNkwYldDOHJAiyjkuY5iYqiGgaHjfXGMiAknFQYOIAAMie0BnjZV4IidGDsphQ2xl8GCllTXDhgzKDXszrMLc8VIqaD4OQycIZhmSCOUMjJXo1QSJYzlJSYgSJStZrqKRRreh64YpPCVS7IQuwTIREAA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    // There should not be negative values in rawData
+const rawData = [
+  [29, 25, 35, 13],
+  [25, 24, 32, 42],
+  [46, 51, 33, 45]
+];
+const totalData = [];
+for (let i = 0; i < rawData[0].length; ++i) {
+  let sum = 0;
+  for (let j = 0; j < rawData.length; ++j) {
+    sum += rawData[j][i];
+  }
+  totalData.push(sum);
+}
+const grid = {
+  left: '25%',
+  right: '25%',
+  top: '13%',
+  bottom: '13%'
+};
+const series = [
+  '需要安全保护但未受到保护',
+  '需要安全保护并受到保护',
+  '不需要安全保护'
+].map((name, sid) => {
+  return {
+    name,
+    type: 'bar',
+    stack: 'total',
+    barWidth: '80%',
+    itemStyle:{
+      color:sid === 0 ? '#5700EC' : sid === 1 ? '#96ffe7' : '#00ffc6'
+    },
+    label: {
+      show: true,
+      formatter: (params) => Math.round(params.value *100)  + '%'
+    },
+    data: rawData[sid].map((d, did) =>
+      totalData[did] <= 0 ? 0 : d / totalData[did]
+    )
+  };
+});
+option = {
+  title:[
+    {
+      text:'数据安全的实际状况'
+    },
+    {
+      subtext:'资料来源：IDC“数据时代2025研究”，希捷赞助，2017年3月',
+      subtextStyle:{
+        fontSize:15,
+        color:'#333'
+      },
+      bottom:0,
+      left:'20%'
+    }
+  ],
+  legend: {
+    selectedMode: false,
+    orient:'vertical',
+    top:'middle',
+    left:'2%'
+  },
+  grid,
+  yAxis: {
+    // type: 'category',
+    // data:['111','222','333']
+    axisLabel:{
+      show:false
+    },
+    splitLine:{
+      show:false
+    }
+  },
+  xAxis: {
+    type: 'category',
+    data: ['2010', '2015', '2020', '2025']
+  },
+  series
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

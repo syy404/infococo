@@ -64,7 +64,7 @@ $(document).ready(function () {
   }
   nxtbtn2();
 
- /*  function loader() {
+  /*  function loader() {
     // 动态加载 CSS 文件
     function loadCSS(file, id) {
       var link = document.createElement("link");

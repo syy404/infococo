@@ -1,0 +1,159 @@
+<!--
+	此示例下载自 https://echarts.apache.org/examples/zh/editor.html?c=bar-negative&code=PYBwLglsB2AEC8sDeAoWszGAG0iAXMmuhgE4QDmFApqYQOQCGAHhAM70A0x6L7ACsAjQwtQqhIkwATxDUGbABaMAJsADu9HrAC-xHd3TZqNaCvHaVjMI0IBtWPQAqoAIwAGAKRdHAJWoAtozCwhQAnF70ALr6hrAU5OZEksYAZmAMAMzecejkFIoZjgAsOdoARsBgmAEMkbmwAMYwNsIAMozl1NiEYKQArtSxxMwAgqxs9toSkhiy8o4AbozYg1za6AHC-AC0rgB0AEwArA2bLPgHJ2ewwqKkyz3uR8faeuhRcdLj7FOSM5IZHIGI1rCZgKRpOtZrA-GwnBBGgBrCww9BKDSEVIrNhDGEGDawiYdLo9AGzO60R74dw3dAAenpsFIVTB-GKr3xN2gjAC8noAFVoBAAI6DWAACUYShsFGhsx5fKc1GYYAAyjJjPhyZJUi01RAAF7yVyZOlNHAQ_D0ADE7nt8phIFUKlC-DstM9nB2ADZ7TEuYSrDZ7PRhNhgItqD56FYINhpIsI3LOI51N1mnzDu5Dq4Y2wkcJQaRo6n6BHsD5CbHgBQ2MB0hAkZgkTGAtIWf1INBS45ytJqNnszHpMB-hj-tgVEjoBoY4pgHygipe9XGopyGwwEEOGWApGIL36OplJBjIxSD2VDGQP0VBRpOpgEij-fLy0my2qzD6PuAvXG2bZ8Y1SfpoBjZp-hAYwKGAHEQKwa8y0aLtS2rCMoxHagLw_IDWzLEBSEYaB8McTNqBUKEy2xLYE2_WZ6ASahqGgNhGhLFjFggFdgC4X8wOI0cbygkAqMcZ07lCGNiIgIJIBgejJHoRpDWgcp-iI0j6GAFQVATNhrHYVJpCk5DlGwYxoBoECwOgRNuOoYBd0cYBFFnRSSCYUgwAgjd2G3aUh3cGNXTEpg2ACUgQtrR1PNA6A7PzQy2GM0zHC2Ht2MYdIYzALsIQgFYR0NGj4zEtdrBCoj1DS49mOiN5iE-YhcXIahJlgOxpkJRUFnofwghCKyIjKGEgT68oL1i9EbGRBgXBsSsbmwTpulRNEMXULEcTxWYCRhQIQGUNhfmSNE9RQjr6Faw8OEJfaKVEAINWkLUdRIZoIzoW1jgAdntABRABhLRAxhYNbE655sx9VNoeKAAOOGjh9U5YGhnNkcyVxilTWBtHh1xkcOQ4zXRo4EbJ6HXFh8mSd-vGCYpqmXjR54aYZ8n3Ep4nilx9AmZOJG6cyWk6eOYXnkyH0WcOX7afxyRnmKTHxbZ_ZTTCLH7Ul_YfTCLWBaV_YVcNwnkdcMJ1fcX6WcyQ5hcVkhnh9BH1dcX7ddcP7keOD2LYNxnjZp_n2c95GfWKWn2bd5GVbRp30GeeXdfttGDk15GEcOUONdcImjedo5SYt36C_ZwPyZVw5iZ9Q4BYDEgHvQd7evmtx6kJcaGEmqKbi3Rg5scBaiuW1aejOmFNu27BcXNEAnIgeToAYNIfPum5DuO073vQC7xwUWhbtBvabiXwIXrewl0E-q1bXtAAxBGABFMhPyRm5ICH7B2dnRdTX-GsVYAPZq7EBedDaAPzrDQkUCwGwCge4NGgCSYFygZkMmUDLaplgezbBCDoaZH5ogyB7NVZwILrgjW_8CHUMwXg2mWDGEMJwTCFBmRhYUPAR4GutC5bMP2BLfmVCy70I1vAph4D7akI1qrKhNM0EVzEZkY4YiTgyNNGTeR5D2Z-ykfnbhGDwG5jFlQ4ov0HZSPtgAjORjaHHB9AIjwhszHFEUSbTInMoF6NoR7XhcDjiN3QO8WAMQdAAG4gA
+	⚠ 请注意，该图表不是 Apache ECharts 官方示例，而是由用户代码生成的。请注意鉴别其内容。
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/echarts.min.js"></script>
+  
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-gl/2/files/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-stat/latest/files/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-graph-modularity extension
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts-graph-modularity/2/files/dist/echarts-graph-modularity.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/4.9.0/files/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://registry.npmmirror.com/echarts/5.5.1/files/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow'
+    }
+  },
+  legend: {
+    data: [ 'Top10%', 'Remaining90%']
+  },
+  grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '0%',
+    containLabel: true
+  },
+  xAxis: [
+    {
+      type: 'value',
+      min:-1.25,
+      max:1.25,
+      interval:0.25
+    }
+  ],
+  yAxis: [
+    {
+      type: 'category',
+      axisTick: {
+        show: false
+      },
+      axisLabel:{
+        interval:0,
+        // rotate:45
+      },
+      name:'Unique Hashtag',
+      nameTextStyle:{
+        fontSize:13,
+        color:'#000',
+        padding:[0,0,0,-600]
+      },
+      data: ['inlove', 'dailyvlog', 'welcome2021', 'skincare', 'lol', 
+      'dogsoftiktok', 'myroutine', 'bye2020', 'youshouldknow', 'homemade', 
+      'christmas', 'movie', 'whatilearned', 'pudgywoke', 'learnontiktok', 
+      'momsoftiktok', 'fun', 'couplegoals', 'food', 'cute',
+      'love', 'yearontiktok', 'prank', 'comedy', 'family', 
+      'greenscreenvideo','munanyo', 'puppy', 'painting', 'animation', 
+      'cznburak', 'oddlysatisfying', 'challenge', 'funnyvideos', 'ohno', 
+      'art', 'christmas2020', 'diy', 'asmr', 'dog',
+      'funny', 'satisfying', 'minecraft', 'tutorial', 'yzfamily', 
+      'cat', 'drawing', 'wee']
+    }
+  ],
+  series: [
+    {
+      name: 'Remaining90%',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: false
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle:{
+        color:'#5700EC'
+      },
+      data: [0.206, 0.248, 0.265, 0.202, 0.314,  
+    0.241, 0.223, 0.283, 0.216, 0.227,  
+    0.283, 0.255, 0.167, 0.083, 0.244,  
+    0.258, 0.230, 0.258, 0.363, 0.276,  
+    0.402, 0.255, 0.139, 0.3008, 0.699,  
+    0.409, 0.241, 0.195, 0.073, 0.328,  
+    0.685, 0.178, 0.157, 0.517, 0.199,  
+    0.164, 0.178, 0.646, 0.185, 0.405,  
+    0.768, 0.325, 1.139, 0.824, 0.111,  
+    0.223, 0.171, 0.199, 0.402, 0.262  
+]
+    },
+    {
+      name: 'Top10%',
+      type: 'bar',
+      stack: 'Total',
+      label: {
+        show: false,
+        position: 'left'
+      },
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle:{
+        color:'#00F8D3'
+      },
+      data: [-0.130, -0.140, -0.168, -0.119, -0.116,
+      -0.168, -0.105, -0.221, -0.133, -0.119, 
+      -0.119, -0.234, -0.109, -0.102, -0.161, 
+      -0.130, -0.133, -0.116, -0.116, -0.116, 
+      -0.238, -0.161, -0.102, -0.276, -0.584, 
+      -0.713, -0.168, -0.116, -0.329, -0.102, 
+      -0.161, -0.193, -0.353, -0.259, -0.133, 
+      -0.102, -0.151, -0.311, -0.133, -0.210, 
+      -0.4728, -0.332, -1.133, -0.566, -0.109, 
+      -0.441, -0.437, -0.151, -0.172, -0.165]
+    }
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>

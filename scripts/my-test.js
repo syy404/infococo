@@ -376,7 +376,7 @@ $(document).ready(function () {
     });
   }
 
-  // 调用函数
+  // 调用函数!
   ntb2();
 
   function choose() {}
